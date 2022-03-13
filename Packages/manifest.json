@@ -41,8 +41,6 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0",
-    "com.jeffcampbellmakesgames.genesis" : "https://github.com/jeffcampbellmakesgames/genesis.git#release/stable",
-    "com.jeffcampbellmakesgames.entitasredux" : "https://github.com/jeffcampbellmakesgames/entitas-redux.git#releases/stable"
+    "com.unity.modules.xr": "1.0.0"
   }
 }

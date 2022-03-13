@@ -1,24 +1,5 @@
 {
   "dependencies": {
-    "com.jeffcampbellmakesgames.entitasredux": {
-      "version": "https://github.com/jeffcampbellmakesgames/entitas-redux.git#releases/stable",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.jeffcampbellmakesgames.genesis": "2.4.4"
-      },
-      "hash": "b53cd2f7f418c7be113df7f758e3b6467a195665"
-    },
-    "com.jeffcampbellmakesgames.genesis": {
-      "version": "https://github.com/jeffcampbellmakesgames/genesis.git#release/stable",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.settings-manager": "1.0.3",
-        "com.unity.sharp-zip-lib": "1.2.2-preview.1"
-      },
-      "hash": "1ab9d017a8d9785d0aa5cbadcfea123c239f33cf"
-    },
     "com.unity.2d.animation": {
       "version": "7.0.3",
       "depth": 1,
@@ -212,13 +193,6 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.settings-manager": {
-      "version": "1.0.3",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
     "com.unity.shadergraph": {
       "version": "12.1.4",
       "depth": 1,
@@ -227,13 +201,6 @@
         "com.unity.render-pipelines.core": "12.1.4",
         "com.unity.searcher": "4.9.1"
       }
-    },
-    "com.unity.sharp-zip-lib": {
-      "version": "1.2.2-preview.1",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
       "version": "1.1.29",
