@@ -18,7 +18,23 @@ public partial class GameEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is DimensionalDoors.Sources.Components.PositionComponent Position)
+		if (component is DimensionalDoors.Components.Game.SpawnComponent Spawn)
+		{
+			IsSpawn = true;
+		}
+		else if (component is DimensionalDoors.Components.Game.ViewComponent View)
+		{
+			CopyViewTo(View);
+		}
+		else if (component is DimensionalDoors.Components.Game.CollisionsComponent Collisions)
+		{
+			CopyCollisionsTo(Collisions);
+		}
+		else if (component is DimensionalDoors.Components.Game.PhysicsComponent Physics)
+		{
+			CopyPhysicsTo(Physics);
+		}
+		else if (component is DimensionalDoors.Components.Game.PositionComponent Position)
 		{
 			CopyPositionTo(Position);
 		}

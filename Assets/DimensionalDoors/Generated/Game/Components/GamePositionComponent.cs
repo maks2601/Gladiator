@@ -9,38 +9,35 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity
 {
-	public DimensionalDoors.Sources.Components.PositionComponent Position { get { return (DimensionalDoors.Sources.Components.PositionComponent)GetComponent(GameComponentsLookup.Position); } }
+	public DimensionalDoors.Components.Game.PositionComponent Position { get { return (DimensionalDoors.Components.Game.PositionComponent)GetComponent(GameComponentsLookup.Position); } }
 	public bool HasPosition { get { return HasComponent(GameComponentsLookup.Position); } }
 
-	public void AddPosition(int newX, int newY)
+	public void AddPosition(UnityEngine.Vector3 newPosition)
 	{
 		var index = GameComponentsLookup.Position;
-		var component = (DimensionalDoors.Sources.Components.PositionComponent)CreateComponent(index, typeof(DimensionalDoors.Sources.Components.PositionComponent));
+		var component = (DimensionalDoors.Components.Game.PositionComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Game.PositionComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
-		component.x = newX;
-		component.y = newY;
+		component.position = newPosition;
 		#endif
 		AddComponent(index, component);
 	}
 
-	public void ReplacePosition(int newX, int newY)
+	public void ReplacePosition(UnityEngine.Vector3 newPosition)
 	{
 		var index = GameComponentsLookup.Position;
-		var component = (DimensionalDoors.Sources.Components.PositionComponent)CreateComponent(index, typeof(DimensionalDoors.Sources.Components.PositionComponent));
+		var component = (DimensionalDoors.Components.Game.PositionComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Game.PositionComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
-		component.x = newX;
-		component.y = newY;
+		component.position = newPosition;
 		#endif
 		ReplaceComponent(index, component);
 	}
 
-	public void CopyPositionTo(DimensionalDoors.Sources.Components.PositionComponent copyComponent)
+	public void CopyPositionTo(DimensionalDoors.Components.Game.PositionComponent copyComponent)
 	{
 		var index = GameComponentsLookup.Position;
-		var component = (DimensionalDoors.Sources.Components.PositionComponent)CreateComponent(index, typeof(DimensionalDoors.Sources.Components.PositionComponent));
+		var component = (DimensionalDoors.Components.Game.PositionComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Game.PositionComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
-		component.x = copyComponent.x;
-		component.y = copyComponent.y;
+		component.position = copyComponent.position;
 		#endif
 		ReplaceComponent(index, component);
 	}
