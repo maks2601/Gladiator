@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace DimensionalDoors.Systems
 {
-    public class CollisionSystem : ReactiveSystem<GameEntity>
+    public sealed class CollisionSystem : ReactiveSystem<GameEntity>
     {
         public CollisionSystem(Contexts contexts) : base(contexts.Game)
         {

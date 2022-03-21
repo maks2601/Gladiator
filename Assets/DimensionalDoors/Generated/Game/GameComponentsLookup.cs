@@ -14,38 +14,50 @@ using JCMG.EntitasRedux;
 public static class GameComponentsLookup
 {
 	public const int Collisions = 0;
-	public const int Physics = 1;
-	public const int Position = 2;
-	public const int Spawn = 3;
-	public const int View = 4;
+	public const int Controlled = 1;
+	public const int Direction = 2;
+	public const int Physics = 3;
+	public const int Position = 4;
+	public const int Rotatable = 5;
+	public const int Spawnable = 6;
+	public const int View = 7;
 
-	public const int TotalComponents = 5;
+	public const int TotalComponents = 8;
 
 	public static readonly string[] ComponentNames =
 	{
 		"Collisions",
+		"Controlled",
+		"Direction",
 		"Physics",
 		"Position",
-		"Spawn",
+		"Rotatable",
+		"Spawnable",
 		"View"
 	};
 
 	public static readonly System.Type[] ComponentTypes =
 	{
 		typeof(DimensionalDoors.Components.Game.CollisionsComponent),
+		typeof(DimensionalDoors.Components.Game.Controlled),
+		typeof(DimensionalDoors.Components.Game.DirectionComponent),
 		typeof(DimensionalDoors.Components.Game.PhysicsComponent),
 		typeof(DimensionalDoors.Components.Game.PositionComponent),
-		typeof(DimensionalDoors.Components.Game.SpawnComponent),
+		typeof(DimensionalDoors.Components.Game.Rotatable),
+		typeof(DimensionalDoors.Components.Game.Spawnable),
 		typeof(DimensionalDoors.Components.Game.ViewComponent)
 	};
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
 		{ typeof(DimensionalDoors.Components.Game.CollisionsComponent), 0 },
-		{ typeof(DimensionalDoors.Components.Game.PhysicsComponent), 1 },
-		{ typeof(DimensionalDoors.Components.Game.PositionComponent), 2 },
-		{ typeof(DimensionalDoors.Components.Game.SpawnComponent), 3 },
-		{ typeof(DimensionalDoors.Components.Game.ViewComponent), 4 }
+		{ typeof(DimensionalDoors.Components.Game.Controlled), 1 },
+		{ typeof(DimensionalDoors.Components.Game.DirectionComponent), 2 },
+		{ typeof(DimensionalDoors.Components.Game.PhysicsComponent), 3 },
+		{ typeof(DimensionalDoors.Components.Game.PositionComponent), 4 },
+		{ typeof(DimensionalDoors.Components.Game.Rotatable), 5 },
+		{ typeof(DimensionalDoors.Components.Game.Spawnable), 6 },
+		{ typeof(DimensionalDoors.Components.Game.ViewComponent), 7 }
 	};
 
 	/// <summary>

@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using JCMG.EntitasRedux;
 using UnityEngine;
 
 namespace DimensionalDoors.Components.Game
 {
     [Game, Serializable]
-    public sealed class CollisionsComponent : IComponent
+    public sealed class DirectionComponent : IComponent
     {
-        public List<GameObject> list;
+        public Vector2 direction;
     }
 }

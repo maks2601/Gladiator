@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace DimensionalDoors.Systems
 {
-    public class PhysicsInitializeSystem : ReactiveSystem<GameEntity>
+    public sealed class PhysicsInitializeSystem : ReactiveSystem<GameEntity>
     {
         public PhysicsInitializeSystem(Contexts contexts) : base(contexts.Game)
         {
@@ -13,7 +13,7 @@ namespace DimensionalDoors.Systems
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
-            return context.CreateCollector(GameMatcher.Spawn.Removed());
+            return context.CreateCollector(GameMatcher.Spawnable.Removed());
         }
 
         protected override bool Filter(GameEntity entity)

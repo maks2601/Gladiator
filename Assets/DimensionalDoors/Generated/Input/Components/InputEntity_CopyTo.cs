@@ -18,7 +18,14 @@ public partial class InputEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-
+		if (component is DimensionalDoors.Components.Input.Touched Touched)
+		{
+			IsTouched = true;
+		}
+		else if (component is DimensionalDoors.Components.Input.InputComponent Input)
+		{
+			CopyInputTo(Input);
+		}
 		#endif
 	}
 

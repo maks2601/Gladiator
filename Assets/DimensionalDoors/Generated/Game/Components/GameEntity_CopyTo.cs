@@ -18,9 +18,17 @@ public partial class GameEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is DimensionalDoors.Components.Game.SpawnComponent Spawn)
+		if (component is DimensionalDoors.Components.Game.Controlled Controlled)
 		{
-			IsSpawn = true;
+			IsControlled = true;
+		}
+		else if (component is DimensionalDoors.Components.Game.Rotatable Rotatable)
+		{
+			IsRotatable = true;
+		}
+		else if (component is DimensionalDoors.Components.Game.DirectionComponent Direction)
+		{
+			CopyDirectionTo(Direction);
 		}
 		else if (component is DimensionalDoors.Components.Game.ViewComponent View)
 		{
@@ -30,13 +38,17 @@ public partial class GameEntity
 		{
 			CopyCollisionsTo(Collisions);
 		}
-		else if (component is DimensionalDoors.Components.Game.PhysicsComponent Physics)
-		{
-			CopyPhysicsTo(Physics);
-		}
 		else if (component is DimensionalDoors.Components.Game.PositionComponent Position)
 		{
 			CopyPositionTo(Position);
+		}
+		else if (component is DimensionalDoors.Components.Game.Spawnable Spawnable)
+		{
+			IsSpawnable = true;
+		}
+		else if (component is DimensionalDoors.Components.Game.PhysicsComponent Physics)
+		{
+			CopyPhysicsTo(Physics);
 		}
 		#endif
 	}

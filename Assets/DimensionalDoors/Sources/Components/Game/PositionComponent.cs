@@ -5,7 +5,7 @@ using UnityEngine;
 namespace DimensionalDoors.Components.Game
 {
     [Game, Serializable]
-    public class PositionComponent : IComponent
+    public sealed class PositionComponent : IComponent
     {
         public Vector3 position;
     }

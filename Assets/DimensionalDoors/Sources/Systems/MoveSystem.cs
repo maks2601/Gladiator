@@ -3,7 +3,7 @@ using JCMG.EntitasRedux;
 
 namespace DimensionalDoors.Systems
 {
-    public class MoveSystem : ReactiveSystem<GameEntity>
+    public sealed class MoveSystem : ReactiveSystem<GameEntity>
     {
         public MoveSystem(Contexts contexts) : base(contexts.Game)
         {

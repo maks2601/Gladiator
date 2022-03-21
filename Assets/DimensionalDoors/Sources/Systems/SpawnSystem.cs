@@ -2,22 +2,22 @@
 
 namespace DimensionalDoors.Systems
 {
-    public class SpawnSystem : ICleanupSystem
+    public sealed class SpawnSystem : ICleanupSystem
     {
-        private GameContext _context;
-        private IGroup<GameEntity> _gameGroup;
+        private readonly GameContext _context;
+        private readonly IGroup<GameEntity> _spawnGroup;
 
         public SpawnSystem(Contexts contexts)
         {
             _context = contexts.Game;
-            _gameGroup = _context.GetGroup(GameMatcher.Spawn);
+            _spawnGroup = _context.GetGroup(GameMatcher.Spawnable);
         }
 
         public void Cleanup()
         {
-            foreach (var e in _gameGroup.GetEntities())
+            foreach (var e in _spawnGroup.GetEntities())
             {
-                e.IsSpawn = false;
+                e.IsSpawnable = false;
             }
         }
     }

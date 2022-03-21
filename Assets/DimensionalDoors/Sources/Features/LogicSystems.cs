@@ -2,9 +2,10 @@
 
 namespace DimensionalDoors.Features
 {
-    public class LogicSystems : Feature  {
+    public sealed class LogicSystems : Feature  {
         public LogicSystems(Contexts contexts)
         {
+            Add(new RotateSystem(contexts));
             Add(new MoveSystem(contexts));
             Add(new CollisionSystem(contexts));
         }	

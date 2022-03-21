@@ -4,7 +4,7 @@ using JCMG.EntitasRedux;
 namespace DimensionalDoors.Components.Game
 {
     [Game, Serializable]
-    public class SpawnComponent : IComponent
+    public sealed class Spawnable : IComponent
     {
     }
 }

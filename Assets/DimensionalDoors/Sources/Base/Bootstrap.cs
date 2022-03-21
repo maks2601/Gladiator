@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace DimensionalDoors.Base
 {
-    public class Bootstrap : MonoBehaviour
+    public sealed class Bootstrap : MonoBehaviour
     {
         [SerializeField] private GameBlueprintBehaviour playerBehaviour;
         private JCMG.EntitasRedux.Systems _systems;
@@ -26,7 +26,7 @@ namespace DimensionalDoors.Base
             blueprint.gameObject.Link(entity);
             blueprint.ApplyToEntity(entity);
             Destroy(blueprint);
-            entity.IsSpawn = true;
+            entity.IsSpawnable = true;
         }
 
         private void Update()

@@ -7,24 +7,24 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameEntity
+public partial class InputEntity
 {
-	static readonly DimensionalDoors.Components.Game.SpawnComponent SpawnComponent = new DimensionalDoors.Components.Game.SpawnComponent();
+	static readonly DimensionalDoors.Components.Input.Touched TouchedComponent = new DimensionalDoors.Components.Input.Touched();
 
-	public bool IsSpawn
+	public bool IsTouched
 	{
-		get { return HasComponent(GameComponentsLookup.Spawn); }
+		get { return HasComponent(InputComponentsLookup.Touched); }
 		set
 		{
-			if (value != IsSpawn)
+			if (value != IsTouched)
 			{
-				var index = GameComponentsLookup.Spawn;
+				var index = InputComponentsLookup.Touched;
 				if (value)
 				{
 					var componentPool = GetComponentPool(index);
 					var component = componentPool.Count > 0
 							? componentPool.Pop()
-							: SpawnComponent;
+							: TouchedComponent;
 
 					AddComponent(index, component);
 				}
@@ -46,22 +46,22 @@ public partial class GameEntity
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class GameMatcher
+public sealed partial class InputMatcher
 {
-	static JCMG.EntitasRedux.IMatcher<GameEntity> _matcherSpawn;
+	static JCMG.EntitasRedux.IMatcher<InputEntity> _matcherTouched;
 
-	public static JCMG.EntitasRedux.IMatcher<GameEntity> Spawn
+	public static JCMG.EntitasRedux.IMatcher<InputEntity> Touched
 	{
 		get
 		{
-			if (_matcherSpawn == null)
+			if (_matcherTouched == null)
 			{
-				var matcher = (JCMG.EntitasRedux.Matcher<GameEntity>)JCMG.EntitasRedux.Matcher<GameEntity>.AllOf(GameComponentsLookup.Spawn);
-				matcher.ComponentNames = GameComponentsLookup.ComponentNames;
-				_matcherSpawn = matcher;
+				var matcher = (JCMG.EntitasRedux.Matcher<InputEntity>)JCMG.EntitasRedux.Matcher<InputEntity>.AllOf(InputComponentsLookup.Touched);
+				matcher.ComponentNames = InputComponentsLookup.ComponentNames;
+				_matcherTouched = matcher;
 			}
 
-			return _matcherSpawn;
+			return _matcherTouched;
 		}
 	}
 }

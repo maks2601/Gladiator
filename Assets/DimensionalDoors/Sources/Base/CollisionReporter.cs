@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace DimensionalDoors.Base
 {
-    public class CollisionReporter : MonoBehaviour
+    public sealed class CollisionReporter : MonoBehaviour
     {
         public GameEntity entity;
 

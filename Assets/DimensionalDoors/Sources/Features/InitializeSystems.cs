@@ -2,7 +2,7 @@
 
 namespace DimensionalDoors.Features
 {
-    public class InitializeSystems : Feature
+    public sealed class InitializeSystems : Feature
     {
         public InitializeSystems(Contexts contexts)
         {
