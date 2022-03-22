@@ -6,7 +6,7 @@ namespace DimensionalDoors.Features
         public LogicSystems(Contexts contexts)
         {
             Add(new RotateSystem(contexts));
-            Add(new MoveSystem(contexts));
+            Add(new TargetMoveSystem(contexts));
             Add(new CollisionSystem(contexts));
         }	
     }

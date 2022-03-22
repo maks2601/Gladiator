@@ -17,10 +17,10 @@ public static class GameComponentsLookup
 	public const int Controlled = 1;
 	public const int Direction = 2;
 	public const int Movable = 3;
-	public const int Moving = 4;
-	public const int Physics = 5;
-	public const int Rotatable = 6;
-	public const int Spawnable = 7;
+	public const int Physics = 4;
+	public const int Rotatable = 5;
+	public const int Spawnable = 6;
+	public const int TargetPoint = 7;
 	public const int View = 8;
 
 	public const int TotalComponents = 9;
@@ -31,10 +31,10 @@ public static class GameComponentsLookup
 		"Controlled",
 		"Direction",
 		"Movable",
-		"Moving",
 		"Physics",
 		"Rotatable",
 		"Spawnable",
+		"TargetPoint",
 		"View"
 	};
 
@@ -44,10 +44,10 @@ public static class GameComponentsLookup
 		typeof(DimensionalDoors.Components.Game.Controlled),
 		typeof(DimensionalDoors.Components.Game.DirectionComponent),
 		typeof(DimensionalDoors.Components.Game.Movable),
-		typeof(DimensionalDoors.Components.Game.Moving),
 		typeof(DimensionalDoors.Components.Game.PhysicsComponent),
 		typeof(DimensionalDoors.Components.Game.Rotatable),
 		typeof(DimensionalDoors.Components.Game.Spawnable),
+		typeof(DimensionalDoors.Components.Game.TargetPointComponent),
 		typeof(DimensionalDoors.Components.Game.ViewComponent)
 	};
 
@@ -57,10 +57,10 @@ public static class GameComponentsLookup
 		{ typeof(DimensionalDoors.Components.Game.Controlled), 1 },
 		{ typeof(DimensionalDoors.Components.Game.DirectionComponent), 2 },
 		{ typeof(DimensionalDoors.Components.Game.Movable), 3 },
-		{ typeof(DimensionalDoors.Components.Game.Moving), 4 },
-		{ typeof(DimensionalDoors.Components.Game.PhysicsComponent), 5 },
-		{ typeof(DimensionalDoors.Components.Game.Rotatable), 6 },
-		{ typeof(DimensionalDoors.Components.Game.Spawnable), 7 },
+		{ typeof(DimensionalDoors.Components.Game.PhysicsComponent), 4 },
+		{ typeof(DimensionalDoors.Components.Game.Rotatable), 5 },
+		{ typeof(DimensionalDoors.Components.Game.Spawnable), 6 },
+		{ typeof(DimensionalDoors.Components.Game.TargetPointComponent), 7 },
 		{ typeof(DimensionalDoors.Components.Game.ViewComponent), 8 }
 	};
 

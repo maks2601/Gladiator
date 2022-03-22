@@ -4,20 +4,20 @@ using UnityEngine;
 
 namespace DimensionalDoors.Systems.LogicSystems
 {
-    public sealed class MoveSystem : ReactiveSystem<GameEntity>
+    public sealed class TargetMoveSystem : ReactiveSystem<GameEntity>
     {
-        public MoveSystem(Contexts contexts) : base(contexts.Game)
+        public TargetMoveSystem(Contexts contexts) : base(contexts.Game)
         {
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
-            return context.CreateCollector(GameMatcher.Moving);
+            return context.CreateCollector(GameMatcher.TargetPoint.Added());
         }
 
         protected override bool Filter(GameEntity entity)
         {
-            return entity.HasPhysics && entity.HasDirection && entity.HasView;
+            return entity.IsMovable && entity.HasPhysics;
         }
 
         protected override void Execute(List<GameEntity> entities)
@@ -25,10 +25,9 @@ namespace DimensionalDoors.Systems.LogicSystems
             foreach (var e in entities)
             {
                 var rigidbody= e.Physics.rigidbody;
-                var direction = e.Direction.direction;
-                Vector2 position = e.View.gameObject.transform.position;
-                rigidbody.MovePosition(position + direction.normalized);
-                e.IsMoving = false;
+                var target = e.TargetPoint.targetPoint;
+                rigidbody.MovePosition(target);
+                e.RemoveTargetPoint();
             }
         }
     }

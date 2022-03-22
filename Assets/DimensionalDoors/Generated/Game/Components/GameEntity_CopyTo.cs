@@ -18,9 +18,9 @@ public partial class GameEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is DimensionalDoors.Components.Game.Moving Moving)
+		if (component is DimensionalDoors.Components.Game.TargetPointComponent TargetPoint)
 		{
-			IsMoving = true;
+			CopyTargetPointTo(TargetPoint);
 		}
 		else if (component is DimensionalDoors.Components.Game.Movable Movable)
 		{
