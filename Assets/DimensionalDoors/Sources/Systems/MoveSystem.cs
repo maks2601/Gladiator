@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using JCMG.EntitasRedux;
+using UnityEngine;
 
 namespace DimensionalDoors.Systems
 {
@@ -11,19 +12,23 @@ namespace DimensionalDoors.Systems
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
-            return context.CreateCollector(GameMatcher.Position);
+            return context.CreateCollector(GameMatcher.Moving);
         }
 
         protected override bool Filter(GameEntity entity)
         {
-            return entity.HasPosition && entity.HasView;
+            return entity.HasPhysics && entity.HasDirection && entity.HasView;
         }
 
         protected override void Execute(List<GameEntity> entities)
         {
             foreach (var e in entities)
             {
-                e.View.gameObject.transform.position = e.Position.position;
+                var rigidbody= e.Physics.rigidbody;
+                var direction = e.Direction.direction;
+                Vector2 position = e.View.gameObject.transform.position;
+                rigidbody.MovePosition(position + direction.normalized);
+                e.IsMoving = false;
             }
         }
     }

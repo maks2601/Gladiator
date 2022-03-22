@@ -8,6 +8,7 @@ namespace DimensionalDoors.Features
         {
             Add(new InputSystem(contexts));
             Add(new InputDirectionSystem(contexts));
+            Add(new InputMoveSystem(contexts));
         }
     }
 }

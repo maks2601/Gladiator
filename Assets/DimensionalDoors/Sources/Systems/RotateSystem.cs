@@ -28,7 +28,6 @@ namespace DimensionalDoors.Systems
                 Vector3 direction = e.Direction.direction.normalized;
                 var point = eTransform.position + direction;
                 eTransform.rotation = Quaternion.LookRotation(Vector3.forward, point);
-                Debug.Log(point);
             }
         }
     }

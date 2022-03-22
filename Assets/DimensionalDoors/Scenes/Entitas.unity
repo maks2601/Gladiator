@@ -609,3 +609,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBehaviour: {fileID: -2037387445276854313, guid: c4a924d3a459b0142a4148f222bfbfd4, type: 3}
+  input: {fileID: 11400000, guid: 705fef197590c4f44aa22af5ca76a86f, type: 2}

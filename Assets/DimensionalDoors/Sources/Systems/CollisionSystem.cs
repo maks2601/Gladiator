@@ -17,7 +17,7 @@ namespace DimensionalDoors.Systems
 
         protected override bool Filter(GameEntity entity)
         {
-            return entity.HasCollisions && entity.HasView;
+            return entity.HasCollisions;
         }
 
         protected override void Execute(List<GameEntity> entities)

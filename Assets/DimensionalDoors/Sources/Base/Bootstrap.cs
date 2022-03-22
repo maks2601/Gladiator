@@ -7,19 +7,20 @@ namespace DimensionalDoors.Base
     public sealed class Bootstrap : MonoBehaviour
     {
         [SerializeField] private GameBlueprintBehaviour playerBehaviour;
+        [SerializeField] private InputBlueprint input;
         private JCMG.EntitasRedux.Systems _systems;
         private Contexts _contexts;
 
         private void Start()
         {
             _contexts = Contexts.SharedInstance;
-            CreateEntity(playerBehaviour);
-            CreateEntity(playerBehaviour);
+            CreateGameEntity(playerBehaviour);
+            CreateInputEntity(input);
             _systems = new AllSystems(_contexts);
             _systems.Initialize();
         }
 
-        private void CreateEntity(GameBlueprintBehaviour behaviour)
+        private void CreateGameEntity(GameBlueprintBehaviour behaviour)
         {
             var blueprint = Instantiate(behaviour);
             var entity = _contexts.Game.CreateEntity();
@@ -27,6 +28,12 @@ namespace DimensionalDoors.Base
             blueprint.ApplyToEntity(entity);
             Destroy(blueprint);
             entity.IsSpawnable = true;
+        }
+
+        private void CreateInputEntity(InputBlueprint inputBlueprint)
+        {
+            var entity = _contexts.Input.CreateEntity();
+            inputBlueprint.ApplyToEntity(entity);
         }
 
         private void Update()

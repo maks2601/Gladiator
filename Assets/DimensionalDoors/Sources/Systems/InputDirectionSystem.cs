@@ -9,7 +9,7 @@ namespace DimensionalDoors.Systems
 
         public InputDirectionSystem(Contexts contexts) : base(contexts.Input)
         {
-            _directionGroup = contexts.Game.GetGroup(GameMatcher.AllOf(GameMatcher.Direction, GameMatcher.Controlled));
+            _directionGroup = contexts.Game.GetGroup(GameMatcher.AllOf(GameMatcher.Rotatable, GameMatcher.Controlled));
         }
 
         protected override ICollector<InputEntity> GetTrigger(IContext<InputEntity> context)
