@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using DimensionalDoors.Base;
 using JCMG.EntitasRedux;
-using UnityEngine;
 
-namespace DimensionalDoors.Systems
+namespace DimensionalDoors.Systems.InitializeSystems
 {
     public sealed class PhysicsInitializeSystem : ReactiveSystem<GameEntity>
     {

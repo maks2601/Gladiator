@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using JCMG.EntitasRedux;
 
-namespace DimensionalDoors.Systems
+namespace DimensionalDoors.Systems.InputSystems
 {
     public sealed class InputMoveSystem : ReactiveSystem<InputEntity>
     {

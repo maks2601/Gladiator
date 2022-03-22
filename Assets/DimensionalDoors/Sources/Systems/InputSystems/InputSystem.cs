@@ -1,7 +1,7 @@
 ﻿using JCMG.EntitasRedux;
 using UnityEngine;
 
-namespace DimensionalDoors.Systems
+namespace DimensionalDoors.Systems.InputSystems
 {
     public sealed class InputSystem : IUpdateSystem
     {

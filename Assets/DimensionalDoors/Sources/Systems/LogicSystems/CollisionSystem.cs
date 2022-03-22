@@ -2,7 +2,7 @@
 using JCMG.EntitasRedux;
 using UnityEngine;
 
-namespace DimensionalDoors.Systems
+namespace DimensionalDoors.Systems.LogicSystems
 {
     public sealed class CollisionSystem : ReactiveSystem<GameEntity>
     {

@@ -1,6 +1,6 @@
 ﻿using JCMG.EntitasRedux;
 
-namespace DimensionalDoors.Systems
+namespace DimensionalDoors.Systems.InitializeSystems
 {
     public sealed class SpawnSystem : ICleanupSystem
     {
