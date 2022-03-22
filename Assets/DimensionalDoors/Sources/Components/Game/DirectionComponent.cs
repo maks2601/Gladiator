@@ -1,10 +1,9 @@
-﻿using System;
-using JCMG.EntitasRedux;
+﻿using JCMG.EntitasRedux;
 using UnityEngine;
 
 namespace DimensionalDoors.Components.Game
 {
-    [Game, Serializable]
+    [Game]
     public sealed class DirectionComponent : IComponent
     {
         public Vector2 direction;

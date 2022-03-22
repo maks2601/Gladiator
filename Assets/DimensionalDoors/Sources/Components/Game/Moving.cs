@@ -1,9 +1,8 @@
-﻿using System;
-using JCMG.EntitasRedux;
+﻿using JCMG.EntitasRedux;
 
 namespace DimensionalDoors.Components.Game
 {
-    [Game, Serializable]
+    [Game]
     public sealed class Moving : IComponent
     {
     }

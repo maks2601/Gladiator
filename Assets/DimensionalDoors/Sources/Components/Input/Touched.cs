@@ -1,9 +1,8 @@
-﻿using System;
-using JCMG.EntitasRedux;
+﻿using JCMG.EntitasRedux;
 
 namespace DimensionalDoors.Components.Input
 {
-    [Input, Serializable]
+    [Input]
     public sealed class Touched : IComponent
     {
     }
