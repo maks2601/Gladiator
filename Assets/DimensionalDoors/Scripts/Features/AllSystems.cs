@@ -7,6 +7,7 @@
             Add(new InputSystems(contexts));
             Add(new InitializeSystems(contexts));
             Add(new LogicSystems(contexts));
+            Add(new VisualizeSystems(contexts));
         }
     }
 }
