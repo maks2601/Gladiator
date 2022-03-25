@@ -9,31 +9,42 @@
 //------------------------------------------------------------------------------
 public partial class InputEntity
 {
-	static readonly DimensionalDoors.Components.Input.ScreenToWorldPoint ScreenToWorldPointComponent = new DimensionalDoors.Components.Input.ScreenToWorldPoint();
+	public DimensionalDoors.Components.Input.ScreenToWorldPoint ScreenToWorldPoint { get { return (DimensionalDoors.Components.Input.ScreenToWorldPoint)GetComponent(InputComponentsLookup.ScreenToWorldPoint); } }
+	public bool HasScreenToWorldPoint { get { return HasComponent(InputComponentsLookup.ScreenToWorldPoint); } }
 
-	public bool IsScreenToWorldPoint
+	public void AddScreenToWorldPoint(UnityEngine.Camera newCamera)
 	{
-		get { return HasComponent(InputComponentsLookup.ScreenToWorldPoint); }
-		set
-		{
-			if (value != IsScreenToWorldPoint)
-			{
-				var index = InputComponentsLookup.ScreenToWorldPoint;
-				if (value)
-				{
-					var componentPool = GetComponentPool(index);
-					var component = componentPool.Count > 0
-							? componentPool.Pop()
-							: ScreenToWorldPointComponent;
+		var index = InputComponentsLookup.ScreenToWorldPoint;
+		var component = (DimensionalDoors.Components.Input.ScreenToWorldPoint)CreateComponent(index, typeof(DimensionalDoors.Components.Input.ScreenToWorldPoint));
+		#if !ENTITAS_REDUX_NO_IMPL
+		component.camera = newCamera;
+		#endif
+		AddComponent(index, component);
+	}
 
-					AddComponent(index, component);
-				}
-				else
-				{
-					RemoveComponent(index);
-				}
-			}
-		}
+	public void ReplaceScreenToWorldPoint(UnityEngine.Camera newCamera)
+	{
+		var index = InputComponentsLookup.ScreenToWorldPoint;
+		var component = (DimensionalDoors.Components.Input.ScreenToWorldPoint)CreateComponent(index, typeof(DimensionalDoors.Components.Input.ScreenToWorldPoint));
+		#if !ENTITAS_REDUX_NO_IMPL
+		component.camera = newCamera;
+		#endif
+		ReplaceComponent(index, component);
+	}
+
+	public void CopyScreenToWorldPointTo(DimensionalDoors.Components.Input.ScreenToWorldPoint copyComponent)
+	{
+		var index = InputComponentsLookup.ScreenToWorldPoint;
+		var component = (DimensionalDoors.Components.Input.ScreenToWorldPoint)CreateComponent(index, typeof(DimensionalDoors.Components.Input.ScreenToWorldPoint));
+		#if !ENTITAS_REDUX_NO_IMPL
+		component.camera = copyComponent.camera;
+		#endif
+		ReplaceComponent(index, component);
+	}
+
+	public void RemoveScreenToWorldPoint()
+	{
+		RemoveComponent(InputComponentsLookup.ScreenToWorldPoint);
 	}
 }
 

@@ -12,8 +12,7 @@ namespace DimensionalDoors.Systems.InputSystems
         public WorldInputSystem(Contexts contexts)
         {
             _context = contexts.Input;
-            _inputGroup = _context.GetGroup(InputMatcher.AllOf(InputMatcher.Touch,
-                InputMatcher.ScreenToWorldPoint, InputMatcher.Camera));
+            _inputGroup = _context.GetGroup(InputMatcher.AllOf(InputMatcher.Touch, InputMatcher.ScreenToWorldPoint));
         }
 
         public void Update()
@@ -24,7 +23,7 @@ namespace DimensionalDoors.Systems.InputSystems
 
             foreach (var e in _inputGroup)
             {
-                var camera = e.Camera.camera;
+                var camera = e.ScreenToWorldPoint.camera;
                 var position = camera.ScreenToWorldPoint(touch.position);
                 touch.HandleTouch(e, position);
             }

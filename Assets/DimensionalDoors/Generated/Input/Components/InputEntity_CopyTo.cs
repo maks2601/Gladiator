@@ -24,15 +24,11 @@ public partial class InputEntity
 		}
 		else if (component is DimensionalDoors.Components.Input.ScreenToWorldPoint ScreenToWorldPoint)
 		{
-			IsScreenToWorldPoint = true;
+			CopyScreenToWorldPointTo(ScreenToWorldPoint);
 		}
 		else if (component is DimensionalDoors.Components.Input.Touched Touched)
 		{
 			IsTouched = true;
-		}
-		else if (component is DimensionalDoors.Components.Input.CameraComponent Camera)
-		{
-			CopyCameraTo(Camera);
 		}
 		else if (component is DimensionalDoors.Components.Input.Controller Controller)
 		{

@@ -18,7 +18,11 @@ public partial class GameEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is DimensionalDoors.Components.Game.ViewComponent View)
+		if (component is DimensionalDoors.Components.Game.FollowCameraComponent FollowCamera)
+		{
+			CopyFollowCameraTo(FollowCamera);
+		}
+		else if (component is DimensionalDoors.Components.Game.ViewComponent View)
 		{
 			CopyViewTo(View);
 		}
@@ -42,9 +46,9 @@ public partial class GameEntity
 		{
 			IsMoving = true;
 		}
-		else if (component is DimensionalDoors.Components.Game.Movable Movable)
+		else if (component is DimensionalDoors.Components.Game.Move Move)
 		{
-			IsMovable = true;
+			CopyMoveTo(Move);
 		}
 		else if (component is DimensionalDoors.Components.Game.Spawnable Spawnable)
 		{

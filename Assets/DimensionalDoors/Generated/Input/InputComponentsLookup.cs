@@ -13,18 +13,16 @@ using JCMG.EntitasRedux;
 
 public static class InputComponentsLookup
 {
-	public const int Camera = 0;
-	public const int Controller = 1;
-	public const int DisplayInput = 2;
-	public const int ScreenToWorldPoint = 3;
-	public const int Touch = 4;
-	public const int Touched = 5;
+	public const int Controller = 0;
+	public const int DisplayInput = 1;
+	public const int ScreenToWorldPoint = 2;
+	public const int Touch = 3;
+	public const int Touched = 4;
 
-	public const int TotalComponents = 6;
+	public const int TotalComponents = 5;
 
 	public static readonly string[] ComponentNames =
 	{
-		"Camera",
 		"Controller",
 		"DisplayInput",
 		"ScreenToWorldPoint",
@@ -34,7 +32,6 @@ public static class InputComponentsLookup
 
 	public static readonly System.Type[] ComponentTypes =
 	{
-		typeof(DimensionalDoors.Components.Input.CameraComponent),
 		typeof(DimensionalDoors.Components.Input.Controller),
 		typeof(DimensionalDoors.Components.Input.DisplayInputComponent),
 		typeof(DimensionalDoors.Components.Input.ScreenToWorldPoint),
@@ -44,12 +41,11 @@ public static class InputComponentsLookup
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
-		{ typeof(DimensionalDoors.Components.Input.CameraComponent), 0 },
-		{ typeof(DimensionalDoors.Components.Input.Controller), 1 },
-		{ typeof(DimensionalDoors.Components.Input.DisplayInputComponent), 2 },
-		{ typeof(DimensionalDoors.Components.Input.ScreenToWorldPoint), 3 },
-		{ typeof(DimensionalDoors.Components.Input.TouchComponent), 4 },
-		{ typeof(DimensionalDoors.Components.Input.Touched), 5 }
+		{ typeof(DimensionalDoors.Components.Input.Controller), 0 },
+		{ typeof(DimensionalDoors.Components.Input.DisplayInputComponent), 1 },
+		{ typeof(DimensionalDoors.Components.Input.ScreenToWorldPoint), 2 },
+		{ typeof(DimensionalDoors.Components.Input.TouchComponent), 3 },
+		{ typeof(DimensionalDoors.Components.Input.Touched), 4 }
 	};
 
 	/// <summary>

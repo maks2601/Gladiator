@@ -222,25 +222,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _components:
-  - rid: 4678412525824376833
-  - rid: 4678412525824376835
-  - rid: 4678412573595664385
-  - rid: 4678412573595664386
-  - rid: 4678412596038598657
+  - rid: 4678412663933108225
+  - rid: 4678412663933108226
+  - rid: 4678412663933108227
+  - rid: 4678412663933108228
+  - rid: 4678412663933108229
   references:
     version: 2
     RefIds:
-    - rid: 4678412525824376833
-      type: {class: PhysicsComponent, ns: DimensionalDoors.Components.Game, asm: Assembly-CSharp}
-      data:
-        rigidbody: {fileID: 6346387846288535845}
-    - rid: 4678412525824376835
+    - rid: 4678412663933108225
       type: {class: ViewComponent, ns: DimensionalDoors.Components.Game, asm: Assembly-CSharp}
       data:
         gameObject: {fileID: 6346387846288535852}
-    - rid: 4678412573595664385
-      type: {class: Controlled, ns: DimensionalDoors.Components.Game, asm: Assembly-CSharp}
-    - rid: 4678412573595664386
+    - rid: 4678412663933108226
+      type: {class: PhysicsComponent, ns: DimensionalDoors.Components.Game, asm: Assembly-CSharp}
+      data:
+        rigidbody: {fileID: 6346387846288535845}
+    - rid: 4678412663933108227
+      type: {class: Move, ns: DimensionalDoors.Components.Game, asm: Assembly-CSharp}
+      data:
+        speed: 3
+    - rid: 4678412663933108228
       type: {class: Rotatable, ns: DimensionalDoors.Components.Game, asm: Assembly-CSharp}
-    - rid: 4678412596038598657
-      type: {class: Movable, ns: DimensionalDoors.Components.Game, asm: Assembly-CSharp}
+    - rid: 4678412663933108229
+      type: {class: Controlled, ns: DimensionalDoors.Components.Game, asm: Assembly-CSharp}

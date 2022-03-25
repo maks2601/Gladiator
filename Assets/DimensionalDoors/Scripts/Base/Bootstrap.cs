@@ -20,20 +20,21 @@ namespace DimensionalDoors.Base
             _systems.Initialize();
         }
 
-        private void CreateGameEntity(GameBlueprintBehaviour behaviour)
+        private void CreateGameEntity(GameBlueprintBehaviour gameBlueprint)
         {
-            var blueprint = Instantiate(behaviour);
             var entity = _contexts.Game.CreateEntity();
-            blueprint.gameObject.Link(entity);
-            blueprint.ApplyToEntity(entity);
-            Destroy(blueprint);
+            gameBlueprint.gameObject.Link(entity);
+            gameBlueprint.ApplyToEntity(entity);
+            Destroy(gameBlueprint);
             entity.IsSpawnable = true;
         }
 
         private void CreateInputEntity(InputBlueprintBehaviour inputBlueprint)
         {
             var entity = _contexts.Input.CreateEntity();
+            inputBlueprint.gameObject.Link(entity);
             inputBlueprint.ApplyToEntity(entity);
+            Destroy(inputBlueprint);
         }
 
         private void Update()

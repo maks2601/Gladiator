@@ -32,7 +32,7 @@ namespace DimensionalDoors.Systems.InputSystems
                     Vector2 position = e.View.gameObject.transform.position;
                     var distance = input.Touch.endPoint - input.Touch.startPoint;
                     e.ReplaceTargetPoint(position + distance);
-                    if (!input.IsTouched && e.IsMovable) e.IsMoving = true;
+                    if (!input.IsTouched && e.HasMove) e.IsMoving = true;
                 }
             }
         }
