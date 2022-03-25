@@ -1,11 +1,32 @@
 {
   "dependencies": {
-    "com.leopotam.ecs": {
-      "version": "https://github.com/Leopotam/ecs.git",
+    "com.arimger.editor-toolbox": {
+      "version": "https://github.com/arimger/Unity-Editor-Toolbox.git#upm",
       "depth": 0,
       "source": "git",
-      "dependencies": {},
-      "hash": "91cc7e390fa0eb4fc88a5cf111df88b1f45af37e"
+      "dependencies": {
+        "com.unity.editorcoroutines": "1.0.0"
+      },
+      "hash": "026ed0a67ef69055d470d1828e71acfcc1cff632"
+    },
+    "com.jeffcampbellmakesgames.entitasredux": {
+      "version": "https://github.com/jeffcampbellmakesgames/entitas-redux.git#releases/stable",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.jeffcampbellmakesgames.genesis": "2.4.4"
+      },
+      "hash": "b53cd2f7f418c7be113df7f758e3b6467a195665"
+    },
+    "com.jeffcampbellmakesgames.genesis": {
+      "version": "https://github.com/jeffcampbellmakesgames/genesis.git#release/stable",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.settings-manager": "1.0.3",
+        "com.unity.sharp-zip-lib": "1.2.2-preview.1"
+      },
+      "hash": "1ab9d017a8d9785d0aa5cbadcfea123c239f33cf"
     },
     "com.unity.2d.animation": {
       "version": "7.0.3",
@@ -101,6 +122,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.cinemachine": {
+      "version": "2.8.4",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.collab-proxy": {
       "version": "1.15.12",
       "depth": 0,
@@ -108,6 +136,13 @@
       "dependencies": {
         "com.unity.services.core": "1.0.1"
       },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.editorcoroutines": {
+      "version": "1.0.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.ext.nunit": {
@@ -200,6 +235,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.settings-manager": {
+      "version": "1.0.3",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.shadergraph": {
       "version": "12.1.4",
       "depth": 1,
@@ -208,6 +250,13 @@
         "com.unity.render-pipelines.core": "12.1.4",
         "com.unity.searcher": "4.9.1"
       }
+    },
+    "com.unity.sharp-zip-lib": {
+      "version": "1.2.2-preview.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
       "version": "1.1.29",
@@ -259,13 +308,6 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
-    },
-    "com.voody.unileo": {
-      "version": "https://github.com/voody2506/UniLeo.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "bef45e8453bbeea579a5234b522f0de44b6aeddf"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
