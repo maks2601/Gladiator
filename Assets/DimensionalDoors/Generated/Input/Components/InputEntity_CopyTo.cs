@@ -18,13 +18,25 @@ public partial class InputEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is DimensionalDoors.Components.Input.Touched Touched)
+		if (component is DimensionalDoors.Components.Input.Controller Controller)
+		{
+			IsController = true;
+		}
+		else if (component is DimensionalDoors.Components.Input.ScreenToWorldPoint ScreenToWorldPoint)
+		{
+			IsScreenToWorldPoint = true;
+		}
+		else if (component is DimensionalDoors.Components.Input.Touched Touched)
 		{
 			IsTouched = true;
 		}
-		else if (component is DimensionalDoors.Components.Input.InputComponent Input)
+		else if (component is DimensionalDoors.Components.Input.CameraComponent Camera)
 		{
-			CopyInputTo(Input);
+			CopyCameraTo(Camera);
+		}
+		else if (component is DimensionalDoors.Components.Input.TouchComponent Touch)
+		{
+			CopyTouchTo(Touch);
 		}
 		#endif
 	}

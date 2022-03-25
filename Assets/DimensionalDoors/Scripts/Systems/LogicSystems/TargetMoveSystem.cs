@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using JCMG.EntitasRedux;
-using UnityEngine;
 
 namespace DimensionalDoors.Systems.LogicSystems
 {
@@ -17,7 +16,7 @@ namespace DimensionalDoors.Systems.LogicSystems
 
         protected override bool Filter(GameEntity entity)
         {
-            return entity.IsMovable && entity.HasPhysics;
+            return entity.IsMoving && entity.HasPhysics;
         }
 
         protected override void Execute(List<GameEntity> entities)
@@ -27,7 +26,7 @@ namespace DimensionalDoors.Systems.LogicSystems
                 var rigidbody= e.Physics.rigidbody;
                 var target = e.TargetPoint.targetPoint;
                 rigidbody.MovePosition(target);
-                e.RemoveTargetPoint();
+                e.IsMoving = false;
             }
         }
     }

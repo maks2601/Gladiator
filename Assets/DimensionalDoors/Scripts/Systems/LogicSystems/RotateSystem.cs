@@ -12,7 +12,7 @@ namespace DimensionalDoors.Systems.LogicSystems
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
-            return context.CreateCollector(GameMatcher.Direction.Added());
+            return context.CreateCollector(GameMatcher.TargetPoint.Added());
         }
 
         protected override bool Filter(GameEntity entity)
@@ -25,10 +25,7 @@ namespace DimensionalDoors.Systems.LogicSystems
             foreach (var e in entities)
             {
                 var eTransform = e.View.gameObject.transform;
-                Vector3 direction = e.Direction.direction.normalized;
-                var point = eTransform.position + direction;
-                eTransform.rotation = Quaternion.LookRotation(Vector3.forward, point);
-                e.RemoveDirection();
+                eTransform.rotation = Quaternion.LookRotation(Vector3.forward, e.TargetPoint.targetPoint);
             }
         }
     }

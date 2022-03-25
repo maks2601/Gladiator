@@ -6,8 +6,8 @@ namespace DimensionalDoors.Features
     {
         public InputSystems(Contexts contexts)
         {
-            Add(new InputSystem(contexts));
-            Add(new InputDirectionSystem(contexts));
+            Add(new ScreenInputSystem(contexts));
+            Add(new WorldInputSystem(contexts));
             Add(new InputTargetPointSystem(contexts));
         }
     }

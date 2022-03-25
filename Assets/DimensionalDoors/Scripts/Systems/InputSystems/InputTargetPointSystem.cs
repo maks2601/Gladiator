@@ -10,19 +10,17 @@ namespace DimensionalDoors.Systems.InputSystems
 
         public InputTargetPointSystem(Contexts contexts) : base(contexts.Input)
         {
-            _movableGroup =
-                contexts.Game.GetGroup(GameMatcher.AllOf(GameMatcher.Movable, GameMatcher.Controlled,
-                    GameMatcher.View));
+            _movableGroup = contexts.Game.GetGroup(GameMatcher.AllOf(GameMatcher.Controlled, GameMatcher.View));
         }
 
         protected override ICollector<InputEntity> GetTrigger(IContext<InputEntity> context)
         {
-            return context.CreateCollector(InputMatcher.Touched.Removed());
+            return context.CreateCollector(InputMatcher.Touch.Added());
         }
 
         protected override bool Filter(InputEntity entity)
         {
-            return entity.HasInput;
+            return entity.IsController;
         }
 
         protected override void Execute(List<InputEntity> entities)
@@ -31,11 +29,10 @@ namespace DimensionalDoors.Systems.InputSystems
             {
                 foreach (var e in _movableGroup.GetEntities())
                 {
-                    var startPoint = Camera.main.ScreenToWorldPoint(input.Input.startPoint);
-                    var endPoint = Camera.main.ScreenToWorldPoint(input.Input.endPoint);
-                    var position = e.View.gameObject.transform.position;
-                    var distance = endPoint - startPoint;
+                    Vector2 position = e.View.gameObject.transform.position;
+                    var distance = input.Touch.endPoint - input.Touch.startPoint;
                     e.ReplaceTargetPoint(position + distance);
+                    if (!input.IsTouched && e.IsMovable) e.IsMoving = true;
                 }
             }
         }

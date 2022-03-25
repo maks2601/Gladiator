@@ -5,7 +5,7 @@ using UnityEngine;
 namespace DimensionalDoors.Components.Input
 {
     [Input, Serializable]
-    public sealed class InputComponent : IComponent
+    public sealed class TouchComponent : IComponent
     {
         public Vector2 startPoint;
         public Vector2 endPoint;
