@@ -9,31 +9,48 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity
 {
-	static readonly DimensionalDoors.Components.Game.Spawnable SpawnableComponent = new DimensionalDoors.Components.Game.Spawnable();
+	public DimensionalDoors.Components.Game.Spawnable Spawnable { get { return (DimensionalDoors.Components.Game.Spawnable)GetComponent(GameComponentsLookup.Spawnable); } }
+	public bool HasSpawnable { get { return HasComponent(GameComponentsLookup.Spawnable); } }
 
-	public bool IsSpawnable
+	public void AddSpawnable(GameBlueprintBehaviour newSpawnable, int newCount, float newSpawnPeriod)
 	{
-		get { return HasComponent(GameComponentsLookup.Spawnable); }
-		set
-		{
-			if (value != IsSpawnable)
-			{
-				var index = GameComponentsLookup.Spawnable;
-				if (value)
-				{
-					var componentPool = GetComponentPool(index);
-					var component = componentPool.Count > 0
-							? componentPool.Pop()
-							: SpawnableComponent;
+		var index = GameComponentsLookup.Spawnable;
+		var component = (DimensionalDoors.Components.Game.Spawnable)CreateComponent(index, typeof(DimensionalDoors.Components.Game.Spawnable));
+		#if !ENTITAS_REDUX_NO_IMPL
+		component.spawnable = newSpawnable;
+		component.count = newCount;
+		component.spawnPeriod = newSpawnPeriod;
+		#endif
+		AddComponent(index, component);
+	}
 
-					AddComponent(index, component);
-				}
-				else
-				{
-					RemoveComponent(index);
-				}
-			}
-		}
+	public void ReplaceSpawnable(GameBlueprintBehaviour newSpawnable, int newCount, float newSpawnPeriod)
+	{
+		var index = GameComponentsLookup.Spawnable;
+		var component = (DimensionalDoors.Components.Game.Spawnable)CreateComponent(index, typeof(DimensionalDoors.Components.Game.Spawnable));
+		#if !ENTITAS_REDUX_NO_IMPL
+		component.spawnable = newSpawnable;
+		component.count = newCount;
+		component.spawnPeriod = newSpawnPeriod;
+		#endif
+		ReplaceComponent(index, component);
+	}
+
+	public void CopySpawnableTo(DimensionalDoors.Components.Game.Spawnable copyComponent)
+	{
+		var index = GameComponentsLookup.Spawnable;
+		var component = (DimensionalDoors.Components.Game.Spawnable)CreateComponent(index, typeof(DimensionalDoors.Components.Game.Spawnable));
+		#if !ENTITAS_REDUX_NO_IMPL
+		component.spawnable = copyComponent.spawnable;
+		component.count = copyComponent.count;
+		component.spawnPeriod = copyComponent.spawnPeriod;
+		#endif
+		ReplaceComponent(index, component);
+	}
+
+	public void RemoveSpawnable()
+	{
+		RemoveComponent(GameComponentsLookup.Spawnable);
 	}
 }
 

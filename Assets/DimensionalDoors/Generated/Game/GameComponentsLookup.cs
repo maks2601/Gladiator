@@ -13,59 +13,83 @@ using JCMG.EntitasRedux;
 
 public static class GameComponentsLookup
 {
-	public const int Collisions = 0;
-	public const int Controlled = 1;
-	public const int FollowCamera = 2;
-	public const int Move = 3;
-	public const int Moving = 4;
-	public const int Physics = 5;
-	public const int Rotatable = 6;
-	public const int Spawnable = 7;
-	public const int TargetPoint = 8;
-	public const int View = 9;
+	public const int Arena = 0;
+	public const int Collisions = 1;
+	public const int Controlled = 2;
+	public const int FollowCamera = 3;
+	public const int Move = 4;
+	public const int Moving = 5;
+	public const int Physics = 6;
+	public const int RandomCirclePosition = 7;
+	public const int Rotatable = 8;
+	public const int Spawnable = 9;
+	public const int Spawned = 10;
+	public const int Spawner = 11;
+	public const int TargetPoint = 12;
+	public const int Timer = 13;
+	public const int View = 14;
+	public const int Wave = 15;
 
-	public const int TotalComponents = 10;
+	public const int TotalComponents = 16;
 
 	public static readonly string[] ComponentNames =
 	{
+		"Arena",
 		"Collisions",
 		"Controlled",
 		"FollowCamera",
 		"Move",
 		"Moving",
 		"Physics",
+		"RandomCirclePosition",
 		"Rotatable",
 		"Spawnable",
+		"Spawned",
+		"Spawner",
 		"TargetPoint",
-		"View"
+		"Timer",
+		"View",
+		"Wave"
 	};
 
 	public static readonly System.Type[] ComponentTypes =
 	{
+		typeof(DimensionalDoors.Components.Game.ArenaComponent),
 		typeof(DimensionalDoors.Components.Game.CollisionsComponent),
 		typeof(DimensionalDoors.Components.Game.Controlled),
 		typeof(DimensionalDoors.Components.Game.FollowCameraComponent),
 		typeof(DimensionalDoors.Components.Game.Move),
 		typeof(DimensionalDoors.Components.Game.Moving),
 		typeof(DimensionalDoors.Components.Game.PhysicsComponent),
+		typeof(DimensionalDoors.Components.Game.RandomCirclePositionComponent),
 		typeof(DimensionalDoors.Components.Game.Rotatable),
 		typeof(DimensionalDoors.Components.Game.Spawnable),
+		typeof(DimensionalDoors.Components.Game.Spawned),
+		typeof(DimensionalDoors.Components.Game.SpawnerComponent),
 		typeof(DimensionalDoors.Components.Game.TargetPointComponent),
-		typeof(DimensionalDoors.Components.Game.ViewComponent)
+		typeof(DimensionalDoors.Components.Game.TimerComponent),
+		typeof(DimensionalDoors.Components.Game.ViewComponent),
+		typeof(DimensionalDoors.Components.Game.WaveComponent)
 	};
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
-		{ typeof(DimensionalDoors.Components.Game.CollisionsComponent), 0 },
-		{ typeof(DimensionalDoors.Components.Game.Controlled), 1 },
-		{ typeof(DimensionalDoors.Components.Game.FollowCameraComponent), 2 },
-		{ typeof(DimensionalDoors.Components.Game.Move), 3 },
-		{ typeof(DimensionalDoors.Components.Game.Moving), 4 },
-		{ typeof(DimensionalDoors.Components.Game.PhysicsComponent), 5 },
-		{ typeof(DimensionalDoors.Components.Game.Rotatable), 6 },
-		{ typeof(DimensionalDoors.Components.Game.Spawnable), 7 },
-		{ typeof(DimensionalDoors.Components.Game.TargetPointComponent), 8 },
-		{ typeof(DimensionalDoors.Components.Game.ViewComponent), 9 }
+		{ typeof(DimensionalDoors.Components.Game.ArenaComponent), 0 },
+		{ typeof(DimensionalDoors.Components.Game.CollisionsComponent), 1 },
+		{ typeof(DimensionalDoors.Components.Game.Controlled), 2 },
+		{ typeof(DimensionalDoors.Components.Game.FollowCameraComponent), 3 },
+		{ typeof(DimensionalDoors.Components.Game.Move), 4 },
+		{ typeof(DimensionalDoors.Components.Game.Moving), 5 },
+		{ typeof(DimensionalDoors.Components.Game.PhysicsComponent), 6 },
+		{ typeof(DimensionalDoors.Components.Game.RandomCirclePositionComponent), 7 },
+		{ typeof(DimensionalDoors.Components.Game.Rotatable), 8 },
+		{ typeof(DimensionalDoors.Components.Game.Spawnable), 9 },
+		{ typeof(DimensionalDoors.Components.Game.Spawned), 10 },
+		{ typeof(DimensionalDoors.Components.Game.SpawnerComponent), 11 },
+		{ typeof(DimensionalDoors.Components.Game.TargetPointComponent), 12 },
+		{ typeof(DimensionalDoors.Components.Game.TimerComponent), 13 },
+		{ typeof(DimensionalDoors.Components.Game.ViewComponent), 14 },
+		{ typeof(DimensionalDoors.Components.Game.WaveComponent), 15 }
 	};
 
 	/// <summary>

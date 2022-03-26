@@ -6,7 +6,7 @@ namespace DimensionalDoors.Features
     {
         public InitializeSystems(Contexts contexts)
         {
-            Add(new SpawnSystem(contexts));
+            Add(new SpawnersInitializeSystem(contexts));
             Add(new PhysicsInitializeSystem(contexts));
         }
     }

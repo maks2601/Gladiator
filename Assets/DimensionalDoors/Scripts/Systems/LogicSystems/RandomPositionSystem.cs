@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
-using DimensionalDoors.Base;
 using JCMG.EntitasRedux;
 
-namespace DimensionalDoors.Systems.InitializeSystems
+namespace DimensionalDoors.Systems.LogicSystems
 {
-    public sealed class PhysicsInitializeSystem : ReactiveSystem<GameEntity>
+    public class RandomPositionSystem : ReactiveSystem<GameEntity>
     {
-        public PhysicsInitializeSystem(Contexts contexts) : base(contexts.Game)
+        public RandomPositionSystem(Contexts contexts) : base(contexts.Game)
         {
         }
 
@@ -17,15 +16,15 @@ namespace DimensionalDoors.Systems.InitializeSystems
 
         protected override bool Filter(GameEntity entity)
         {
-            return entity.HasPhysics && entity.HasView;
+            return entity.HasRandomCirclePosition && entity.HasView;
         }
 
         protected override void Execute(List<GameEntity> entities)
         {
             foreach (var e in entities)
             {
-                var reporter = e.View.gameObject.AddComponent<CollisionReporter>();
-                reporter.entity = e;
+                var eTransform = e.View.gameObject.transform;
+                eTransform.position = UnityEngine.Random.insideUnitCircle * e.RandomCirclePosition.radius;
             }
         }
     }

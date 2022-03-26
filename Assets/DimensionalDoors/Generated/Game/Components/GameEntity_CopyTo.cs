@@ -18,9 +18,13 @@ public partial class GameEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is DimensionalDoors.Components.Game.FollowCameraComponent FollowCamera)
+		if (component is DimensionalDoors.Components.Game.Spawned Spawned)
 		{
-			CopyFollowCameraTo(FollowCamera);
+			IsSpawned = true;
+		}
+		else if (component is DimensionalDoors.Components.Game.RandomCirclePositionComponent RandomCirclePosition)
+		{
+			CopyRandomCirclePositionTo(RandomCirclePosition);
 		}
 		else if (component is DimensionalDoors.Components.Game.ViewComponent View)
 		{
@@ -50,13 +54,33 @@ public partial class GameEntity
 		{
 			CopyMoveTo(Move);
 		}
-		else if (component is DimensionalDoors.Components.Game.Spawnable Spawnable)
+		else if (component is DimensionalDoors.Components.Game.ArenaComponent Arena)
 		{
-			IsSpawnable = true;
+			CopyArenaTo(Arena);
+		}
+		else if (component is DimensionalDoors.Components.Game.SpawnerComponent Spawner)
+		{
+			CopySpawnerTo(Spawner);
+		}
+		else if (component is DimensionalDoors.Components.Game.TimerComponent Timer)
+		{
+			CopyTimerTo(Timer);
+		}
+		else if (component is DimensionalDoors.Components.Game.FollowCameraComponent FollowCamera)
+		{
+			CopyFollowCameraTo(FollowCamera);
 		}
 		else if (component is DimensionalDoors.Components.Game.PhysicsComponent Physics)
 		{
 			CopyPhysicsTo(Physics);
+		}
+		else if (component is DimensionalDoors.Components.Game.Spawnable Spawnable)
+		{
+			CopySpawnableTo(Spawnable);
+		}
+		else if (component is DimensionalDoors.Components.Game.WaveComponent Wave)
+		{
+			CopyWaveTo(Wave);
 		}
 		#endif
 	}

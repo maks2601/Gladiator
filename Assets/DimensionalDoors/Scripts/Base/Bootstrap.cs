@@ -1,5 +1,5 @@
-﻿using DimensionalDoors.Features;
-using JCMG.EntitasRedux;
+﻿using DimensionalDoors.Extensions;
+using DimensionalDoors.Features;
 using UnityEngine;
 
 namespace DimensionalDoors.Base
@@ -7,34 +7,23 @@ namespace DimensionalDoors.Base
     public sealed class Bootstrap : MonoBehaviour
     {
         [SerializeField] private GameBlueprintBehaviour playerBehaviour;
+        [SerializeField] private GameBlueprintBehaviour spawnerBehaviour;
         [SerializeField] private InputBlueprintBehaviour inputBehaviour;
+        [SerializeField] private int currentArena;
+        [SerializeField] private int currentWave;
         private JCMG.EntitasRedux.Systems _systems;
         private Contexts _contexts;
 
         private void Start()
         {
             _contexts = Contexts.SharedInstance;
-            CreateGameEntity(playerBehaviour);
-            CreateInputEntity(inputBehaviour);
+            playerBehaviour.CreateEntity(_contexts.Game);
+            inputBehaviour.CreateEntity(_contexts.Input);
+            var spawner = spawnerBehaviour.CreateEntity(_contexts.Game);
+            spawner.AddArena(currentArena);
+            spawner.AddWave(currentWave);
             _systems = new AllSystems(_contexts);
             _systems.Initialize();
-        }
-
-        private void CreateGameEntity(GameBlueprintBehaviour gameBlueprint)
-        {
-            var entity = _contexts.Game.CreateEntity();
-            gameBlueprint.gameObject.Link(entity);
-            gameBlueprint.ApplyToEntity(entity);
-            Destroy(gameBlueprint);
-            entity.IsSpawnable = true;
-        }
-
-        private void CreateInputEntity(InputBlueprintBehaviour inputBlueprint)
-        {
-            var entity = _contexts.Input.CreateEntity();
-            inputBlueprint.gameObject.Link(entity);
-            inputBlueprint.ApplyToEntity(entity);
-            Destroy(inputBlueprint);
         }
 
         private void Update()
