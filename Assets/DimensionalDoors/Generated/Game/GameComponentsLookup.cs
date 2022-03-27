@@ -23,8 +23,8 @@ public static class GameComponentsLookup
 	public const int Rotatable = 7;
 	public const int Spawned = 8;
 	public const int TargetPoint = 9;
-	public const int Timer = 10;
-	public const int View = 11;
+	public const int View = 10;
+	public const int Timer = 11;
 
 	public const int TotalComponents = 12;
 
@@ -40,8 +40,8 @@ public static class GameComponentsLookup
 		"Rotatable",
 		"Spawned",
 		"TargetPoint",
-		"Timer",
-		"View"
+		"View",
+		"Timer"
 	};
 
 	public static readonly System.Type[] ComponentTypes =
@@ -56,8 +56,8 @@ public static class GameComponentsLookup
 		typeof(DimensionalDoors.Components.Game.Rotatable),
 		typeof(DimensionalDoors.Components.Game.Spawned),
 		typeof(DimensionalDoors.Components.Game.TargetPointComponent),
-		typeof(DimensionalDoors.Components.Game.TimerComponent),
-		typeof(DimensionalDoors.Components.Game.ViewComponent)
+		typeof(DimensionalDoors.Components.Game.ViewComponent),
+		typeof(DimensionalDoors.Components.TimerComponent)
 	};
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
@@ -72,8 +72,8 @@ public static class GameComponentsLookup
 		{ typeof(DimensionalDoors.Components.Game.Rotatable), 7 },
 		{ typeof(DimensionalDoors.Components.Game.Spawned), 8 },
 		{ typeof(DimensionalDoors.Components.Game.TargetPointComponent), 9 },
-		{ typeof(DimensionalDoors.Components.Game.TimerComponent), 10 },
-		{ typeof(DimensionalDoors.Components.Game.ViewComponent), 11 }
+		{ typeof(DimensionalDoors.Components.Game.ViewComponent), 10 },
+		{ typeof(DimensionalDoors.Components.TimerComponent), 11 }
 	};
 
 	/// <summary>

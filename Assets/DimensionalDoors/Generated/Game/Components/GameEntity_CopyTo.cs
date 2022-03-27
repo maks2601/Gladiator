@@ -18,7 +18,11 @@ public partial class GameEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is DimensionalDoors.Components.Game.ViewComponent View)
+		if (component is DimensionalDoors.Components.TimerComponent Timer)
+		{
+			CopyTimerTo(Timer);
+		}
+		else if (component is DimensionalDoors.Components.Game.ViewComponent View)
 		{
 			CopyViewTo(View);
 		}
@@ -53,10 +57,6 @@ public partial class GameEntity
 		else if (component is DimensionalDoors.Components.Game.Move Move)
 		{
 			CopyMoveTo(Move);
-		}
-		else if (component is DimensionalDoors.Components.Game.TimerComponent Timer)
-		{
-			CopyTimerTo(Timer);
 		}
 		else if (component is DimensionalDoors.Components.Game.FollowCameraComponent FollowCamera)
 		{

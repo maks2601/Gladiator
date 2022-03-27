@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 public partial interface ITimerEntity
 {
-	DimensionalDoors.Components.Game.TimerComponent Timer { get; }
+	DimensionalDoors.Components.TimerComponent Timer { get; }
 	bool HasTimer { get; }
 
 	void AddTimer(float newTime);

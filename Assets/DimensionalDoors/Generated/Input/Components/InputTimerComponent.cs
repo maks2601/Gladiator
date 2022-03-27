@@ -9,13 +9,13 @@
 //------------------------------------------------------------------------------
 public partial class InputEntity
 {
-	public DimensionalDoors.Components.Game.TimerComponent Timer { get { return (DimensionalDoors.Components.Game.TimerComponent)GetComponent(InputComponentsLookup.Timer); } }
+	public DimensionalDoors.Components.TimerComponent Timer { get { return (DimensionalDoors.Components.TimerComponent)GetComponent(InputComponentsLookup.Timer); } }
 	public bool HasTimer { get { return HasComponent(InputComponentsLookup.Timer); } }
 
 	public void AddTimer(float newTime)
 	{
 		var index = InputComponentsLookup.Timer;
-		var component = (DimensionalDoors.Components.Game.TimerComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Game.TimerComponent));
+		var component = (DimensionalDoors.Components.TimerComponent)CreateComponent(index, typeof(DimensionalDoors.Components.TimerComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.time = newTime;
 		#endif
@@ -25,17 +25,17 @@ public partial class InputEntity
 	public void ReplaceTimer(float newTime)
 	{
 		var index = InputComponentsLookup.Timer;
-		var component = (DimensionalDoors.Components.Game.TimerComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Game.TimerComponent));
+		var component = (DimensionalDoors.Components.TimerComponent)CreateComponent(index, typeof(DimensionalDoors.Components.TimerComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.time = newTime;
 		#endif
 		ReplaceComponent(index, component);
 	}
 
-	public void CopyTimerTo(DimensionalDoors.Components.Game.TimerComponent copyComponent)
+	public void CopyTimerTo(DimensionalDoors.Components.TimerComponent copyComponent)
 	{
 		var index = InputComponentsLookup.Timer;
-		var component = (DimensionalDoors.Components.Game.TimerComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Game.TimerComponent));
+		var component = (DimensionalDoors.Components.TimerComponent)CreateComponent(index, typeof(DimensionalDoors.Components.TimerComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.time = copyComponent.time;
 		#endif

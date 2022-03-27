@@ -13,39 +13,39 @@ using JCMG.EntitasRedux;
 
 public static class SpawnComponentsLookup
 {
-	public const int Timer = 0;
-	public const int Arena = 1;
-	public const int Spawnable = 2;
-	public const int Spawner = 3;
-	public const int Wave = 4;
+	public const int Arena = 0;
+	public const int Spawnable = 1;
+	public const int Spawner = 2;
+	public const int Wave = 3;
+	public const int Timer = 4;
 
 	public const int TotalComponents = 5;
 
 	public static readonly string[] ComponentNames =
 	{
-		"Timer",
 		"Arena",
 		"Spawnable",
 		"Spawner",
-		"Wave"
+		"Wave",
+		"Timer"
 	};
 
 	public static readonly System.Type[] ComponentTypes =
 	{
-		typeof(DimensionalDoors.Components.Game.TimerComponent),
 		typeof(DimensionalDoors.Components.Spawn.ArenaComponent),
 		typeof(DimensionalDoors.Components.Spawn.Spawnable),
 		typeof(DimensionalDoors.Components.Spawn.SpawnerComponent),
-		typeof(DimensionalDoors.Components.Spawn.WaveComponent)
+		typeof(DimensionalDoors.Components.Spawn.WaveComponent),
+		typeof(DimensionalDoors.Components.TimerComponent)
 	};
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
-		{ typeof(DimensionalDoors.Components.Game.TimerComponent), 0 },
-		{ typeof(DimensionalDoors.Components.Spawn.ArenaComponent), 1 },
-		{ typeof(DimensionalDoors.Components.Spawn.Spawnable), 2 },
-		{ typeof(DimensionalDoors.Components.Spawn.SpawnerComponent), 3 },
-		{ typeof(DimensionalDoors.Components.Spawn.WaveComponent), 4 }
+		{ typeof(DimensionalDoors.Components.Spawn.ArenaComponent), 0 },
+		{ typeof(DimensionalDoors.Components.Spawn.Spawnable), 1 },
+		{ typeof(DimensionalDoors.Components.Spawn.SpawnerComponent), 2 },
+		{ typeof(DimensionalDoors.Components.Spawn.WaveComponent), 3 },
+		{ typeof(DimensionalDoors.Components.TimerComponent), 4 }
 	};
 
 	/// <summary>

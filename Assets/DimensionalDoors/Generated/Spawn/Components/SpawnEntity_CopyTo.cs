@@ -18,7 +18,7 @@ public partial class SpawnEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is DimensionalDoors.Components.Game.TimerComponent Timer)
+		if (component is DimensionalDoors.Components.TimerComponent Timer)
 		{
 			CopyTimerTo(Timer);
 		}

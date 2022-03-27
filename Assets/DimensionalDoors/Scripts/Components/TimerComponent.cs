@@ -1,7 +1,7 @@
 ﻿using System;
 using JCMG.EntitasRedux;
 
-namespace DimensionalDoors.Components.Game
+namespace DimensionalDoors.Components
 {
     [Game, Input, Spawn, Serializable]
     public sealed class TimerComponent : IComponent
