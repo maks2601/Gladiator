@@ -3,7 +3,7 @@ using JCMG.EntitasRedux;
 
 namespace DimensionalDoors.Systems.LogicSystems
 {
-    public class RandomPositionSystem : ReactiveSystem<GameEntity>
+    public sealed class RandomPositionSystem : ReactiveSystem<GameEntity>
     {
         public RandomPositionSystem(Contexts contexts) : base(contexts.Game)
         {

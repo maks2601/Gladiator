@@ -17,6 +17,7 @@ MonoBehaviour:
     - spawnables:
       - spawnable: {fileID: 7810438981399168073, guid: 652b88a74e7e7be4594a2cb1f24c8c9f, type: 3}
         count: 5
+        startDelay: 3
         spawnPeriod: 1
   - waves: []
   - waves: []

@@ -8,6 +8,7 @@ namespace DimensionalDoors.Components.Spawn
     {
         public GameBlueprintBehaviour spawnable;
         public int count;
+        public float startDelay;
         public float spawnPeriod;
     }
 }

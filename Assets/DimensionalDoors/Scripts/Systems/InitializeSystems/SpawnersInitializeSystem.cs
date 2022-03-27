@@ -33,6 +33,7 @@ namespace DimensionalDoors.Systems.InitializeSystems
                 {
                     var entity = _context.CreateEntity();
                     entity.CopySpawnableTo(spawnable);
+                    entity.AddTimer(entity.Spawnable.startDelay);
                 }
             }
         }

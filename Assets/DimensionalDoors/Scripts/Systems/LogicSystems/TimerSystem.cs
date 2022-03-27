@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace DimensionalDoors.Systems.LogicSystems
 {
-    public class TimerSystem : IUpdateSystem
+    public sealed class TimerSystem : IUpdateSystem
     {
         private readonly IGroup<GameEntity> _gameTimerGroup;
         private readonly IGroup<InputEntity> _inputTimerGroup;

@@ -12,25 +12,27 @@ public partial class SpawnEntity
 	public DimensionalDoors.Components.Spawn.Spawnable Spawnable { get { return (DimensionalDoors.Components.Spawn.Spawnable)GetComponent(SpawnComponentsLookup.Spawnable); } }
 	public bool HasSpawnable { get { return HasComponent(SpawnComponentsLookup.Spawnable); } }
 
-	public void AddSpawnable(GameBlueprintBehaviour newSpawnable, int newCount, float newSpawnPeriod)
+	public void AddSpawnable(GameBlueprintBehaviour newSpawnable, int newCount, float newStartDelay, float newSpawnPeriod)
 	{
 		var index = SpawnComponentsLookup.Spawnable;
 		var component = (DimensionalDoors.Components.Spawn.Spawnable)CreateComponent(index, typeof(DimensionalDoors.Components.Spawn.Spawnable));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.spawnable = newSpawnable;
 		component.count = newCount;
+		component.startDelay = newStartDelay;
 		component.spawnPeriod = newSpawnPeriod;
 		#endif
 		AddComponent(index, component);
 	}
 
-	public void ReplaceSpawnable(GameBlueprintBehaviour newSpawnable, int newCount, float newSpawnPeriod)
+	public void ReplaceSpawnable(GameBlueprintBehaviour newSpawnable, int newCount, float newStartDelay, float newSpawnPeriod)
 	{
 		var index = SpawnComponentsLookup.Spawnable;
 		var component = (DimensionalDoors.Components.Spawn.Spawnable)CreateComponent(index, typeof(DimensionalDoors.Components.Spawn.Spawnable));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.spawnable = newSpawnable;
 		component.count = newCount;
+		component.startDelay = newStartDelay;
 		component.spawnPeriod = newSpawnPeriod;
 		#endif
 		ReplaceComponent(index, component);
@@ -43,6 +45,7 @@ public partial class SpawnEntity
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.spawnable = copyComponent.spawnable;
 		component.count = copyComponent.count;
+		component.startDelay = copyComponent.startDelay;
 		component.spawnPeriod = copyComponent.spawnPeriod;
 		#endif
 		ReplaceComponent(index, component);

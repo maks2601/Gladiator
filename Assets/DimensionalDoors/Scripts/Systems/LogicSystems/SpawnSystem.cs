@@ -3,7 +3,7 @@ using JCMG.EntitasRedux;
 
 namespace DimensionalDoors.Systems.LogicSystems
 {
-    public class SpawnSystem : IUpdateSystem
+    public sealed class SpawnSystem : IUpdateSystem
     {
         private readonly Contexts _contexts;
         private readonly IGroup<SpawnEntity> _spawnableGroup;
