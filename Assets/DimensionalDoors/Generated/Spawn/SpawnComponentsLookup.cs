@@ -11,45 +11,41 @@ using System;
 using System.Collections.Generic;
 using JCMG.EntitasRedux;
 
-public static class InputComponentsLookup
+public static class SpawnComponentsLookup
 {
 	public const int Timer = 0;
-	public const int Controller = 1;
-	public const int DisplayInput = 2;
-	public const int ScreenToWorldPoint = 3;
-	public const int Touch = 4;
-	public const int Touched = 5;
+	public const int Arena = 1;
+	public const int Spawnable = 2;
+	public const int Spawner = 3;
+	public const int Wave = 4;
 
-	public const int TotalComponents = 6;
+	public const int TotalComponents = 5;
 
 	public static readonly string[] ComponentNames =
 	{
 		"Timer",
-		"Controller",
-		"DisplayInput",
-		"ScreenToWorldPoint",
-		"Touch",
-		"Touched"
+		"Arena",
+		"Spawnable",
+		"Spawner",
+		"Wave"
 	};
 
 	public static readonly System.Type[] ComponentTypes =
 	{
 		typeof(DimensionalDoors.Components.Game.TimerComponent),
-		typeof(DimensionalDoors.Components.Input.Controller),
-		typeof(DimensionalDoors.Components.Input.DisplayInputComponent),
-		typeof(DimensionalDoors.Components.Input.ScreenToWorldPoint),
-		typeof(DimensionalDoors.Components.Input.TouchComponent),
-		typeof(DimensionalDoors.Components.Input.Touched)
+		typeof(DimensionalDoors.Components.Spawn.ArenaComponent),
+		typeof(DimensionalDoors.Components.Spawn.Spawnable),
+		typeof(DimensionalDoors.Components.Spawn.SpawnerComponent),
+		typeof(DimensionalDoors.Components.Spawn.WaveComponent)
 	};
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
 		{ typeof(DimensionalDoors.Components.Game.TimerComponent), 0 },
-		{ typeof(DimensionalDoors.Components.Input.Controller), 1 },
-		{ typeof(DimensionalDoors.Components.Input.DisplayInputComponent), 2 },
-		{ typeof(DimensionalDoors.Components.Input.ScreenToWorldPoint), 3 },
-		{ typeof(DimensionalDoors.Components.Input.TouchComponent), 4 },
-		{ typeof(DimensionalDoors.Components.Input.Touched), 5 }
+		{ typeof(DimensionalDoors.Components.Spawn.ArenaComponent), 1 },
+		{ typeof(DimensionalDoors.Components.Spawn.Spawnable), 2 },
+		{ typeof(DimensionalDoors.Components.Spawn.SpawnerComponent), 3 },
+		{ typeof(DimensionalDoors.Components.Spawn.WaveComponent), 4 }
 	};
 
 	/// <summary>

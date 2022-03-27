@@ -49,13 +49,15 @@ public partial class Contexts : JCMG.EntitasRedux.IContexts
 
 	public GameContext Game { get; set; }
 	public InputContext Input { get; set; }
+	public SpawnContext Spawn { get; set; }
 
-	public JCMG.EntitasRedux.IContext[] AllContexts { get { return new JCMG.EntitasRedux.IContext [] { Game, Input }; } }
+	public JCMG.EntitasRedux.IContext[] AllContexts { get { return new JCMG.EntitasRedux.IContext [] { Game, Input, Spawn }; } }
 
 	public Contexts()
 	{
 		Game = new GameContext();
 		Input = new InputContext();
+		Spawn = new SpawnContext();
 
 		var postConstructors = System.Linq.Enumerable.Where(
 			GetType().GetMethods(),
@@ -96,6 +98,7 @@ public partial class Contexts {
 		try {
 			CreateContextObserver(Game);
 			CreateContextObserver(Input);
+			CreateContextObserver(Spawn);
 		} catch(System.Exception) {
 		}
 	}

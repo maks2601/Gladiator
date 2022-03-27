@@ -1,9 +1,9 @@
 ﻿using System;
 using JCMG.EntitasRedux;
 
-namespace DimensionalDoors.Components.Game
+namespace DimensionalDoors.Components.Spawn
 {
-    [Game, Serializable]
+    [Spawn, Serializable]
     public class Spawnable : IComponent
     {
         public GameBlueprintBehaviour spawnable;

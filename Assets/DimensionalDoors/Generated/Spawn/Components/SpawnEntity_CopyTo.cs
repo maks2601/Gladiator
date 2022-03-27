@@ -10,7 +10,7 @@
 
 using JCMG.EntitasRedux;
 
-public partial class InputEntity
+public partial class SpawnEntity
 {
 	/// <summary>
 	/// Copies <paramref name="component"/> to this entity as a new component instance.
@@ -22,25 +22,21 @@ public partial class InputEntity
 		{
 			CopyTimerTo(Timer);
 		}
-		else if (component is DimensionalDoors.Components.Input.ScreenToWorldPoint ScreenToWorldPoint)
+		else if (component is DimensionalDoors.Components.Spawn.ArenaComponent Arena)
 		{
-			CopyScreenToWorldPointTo(ScreenToWorldPoint);
+			CopyArenaTo(Arena);
 		}
-		else if (component is DimensionalDoors.Components.Input.DisplayInputComponent DisplayInput)
+		else if (component is DimensionalDoors.Components.Spawn.SpawnerComponent Spawner)
 		{
-			CopyDisplayInputTo(DisplayInput);
+			CopySpawnerTo(Spawner);
 		}
-		else if (component is DimensionalDoors.Components.Input.Touched Touched)
+		else if (component is DimensionalDoors.Components.Spawn.Spawnable Spawnable)
 		{
-			IsTouched = true;
+			CopySpawnableTo(Spawnable);
 		}
-		else if (component is DimensionalDoors.Components.Input.Controller Controller)
+		else if (component is DimensionalDoors.Components.Spawn.WaveComponent Wave)
 		{
-			IsController = true;
-		}
-		else if (component is DimensionalDoors.Components.Input.TouchComponent Touch)
-		{
-			CopyTouchTo(Touch);
+			CopyWaveTo(Wave);
 		}
 		#endif
 	}
@@ -48,9 +44,9 @@ public partial class InputEntity
 	/// <summary>
 	/// Copies all components on this entity to <paramref name="copyToEntity"/>.
 	/// </summary>
-	public void CopyTo(InputEntity copyToEntity)
+	public void CopyTo(SpawnEntity copyToEntity)
 	{
-		for (var i = 0; i < InputComponentsLookup.TotalComponents; ++i)
+		for (var i = 0; i < SpawnComponentsLookup.TotalComponents; ++i)
 		{
 			if (HasComponent(i))
 			{
@@ -59,7 +55,7 @@ public partial class InputEntity
 					throw new EntityAlreadyHasComponentException(
 						i,
 						"Cannot copy component '" +
-						InputComponentsLookup.ComponentNames[i] +
+						SpawnComponentsLookup.ComponentNames[i] +
 						"' to " +
 						this +
 						"!",
@@ -77,9 +73,9 @@ public partial class InputEntity
 	/// is true any of the components that <paramref name="copyToEntity"/> has that this entity has will be replaced,
 	/// otherwise they will be skipped.
 	/// </summary>
-	public void CopyTo(InputEntity copyToEntity, bool replaceExisting)
+	public void CopyTo(SpawnEntity copyToEntity, bool replaceExisting)
 	{
-		for (var i = 0; i < InputComponentsLookup.TotalComponents; ++i)
+		for (var i = 0; i < SpawnComponentsLookup.TotalComponents; ++i)
 		{
 			if (!HasComponent(i))
 			{
@@ -95,18 +91,18 @@ public partial class InputEntity
 	}
 
 	/// <summary>
-	/// Copies components on this entity at <paramref name="indices"/> in the <see cref="InputComponentsLookup"/> to
+	/// Copies components on this entity at <paramref name="indices"/> in the <see cref="SpawnComponentsLookup"/> to
 	/// <paramref name="copyToEntity"/>. If <paramref name="replaceExisting"/> is true any of the components that
 	/// <paramref name="copyToEntity"/> has that this entity has will be replaced, otherwise they will be skipped.
 	/// </summary>
-	public void CopyTo(InputEntity copyToEntity, bool replaceExisting, params int[] indices)
+	public void CopyTo(SpawnEntity copyToEntity, bool replaceExisting, params int[] indices)
 	{
 		for (var i = 0; i < indices.Length; ++i)
 		{
 			var index = indices[i];
 
 			// Validate that the index is within range of the component lookup
-			if (index < 0 && index >= InputComponentsLookup.TotalComponents)
+			if (index < 0 && index >= SpawnComponentsLookup.TotalComponents)
 			{
 				const string OUT_OF_RANGE_WARNING =
 					"Component Index [{0}] is out of range for [{1}].";
@@ -114,7 +110,7 @@ public partial class InputEntity
 				const string HINT = "Please ensure any CopyTo indices are valid.";
 
 				throw new IndexOutOfLookupRangeException(
-					string.Format(OUT_OF_RANGE_WARNING, index, nameof(InputComponentsLookup)),
+					string.Format(OUT_OF_RANGE_WARNING, index, nameof(SpawnComponentsLookup)),
 					HINT);
 			}
 

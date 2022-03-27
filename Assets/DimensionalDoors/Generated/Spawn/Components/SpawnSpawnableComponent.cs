@@ -7,15 +7,15 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameEntity
+public partial class SpawnEntity
 {
-	public DimensionalDoors.Components.Game.Spawnable Spawnable { get { return (DimensionalDoors.Components.Game.Spawnable)GetComponent(GameComponentsLookup.Spawnable); } }
-	public bool HasSpawnable { get { return HasComponent(GameComponentsLookup.Spawnable); } }
+	public DimensionalDoors.Components.Spawn.Spawnable Spawnable { get { return (DimensionalDoors.Components.Spawn.Spawnable)GetComponent(SpawnComponentsLookup.Spawnable); } }
+	public bool HasSpawnable { get { return HasComponent(SpawnComponentsLookup.Spawnable); } }
 
 	public void AddSpawnable(GameBlueprintBehaviour newSpawnable, int newCount, float newSpawnPeriod)
 	{
-		var index = GameComponentsLookup.Spawnable;
-		var component = (DimensionalDoors.Components.Game.Spawnable)CreateComponent(index, typeof(DimensionalDoors.Components.Game.Spawnable));
+		var index = SpawnComponentsLookup.Spawnable;
+		var component = (DimensionalDoors.Components.Spawn.Spawnable)CreateComponent(index, typeof(DimensionalDoors.Components.Spawn.Spawnable));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.spawnable = newSpawnable;
 		component.count = newCount;
@@ -26,8 +26,8 @@ public partial class GameEntity
 
 	public void ReplaceSpawnable(GameBlueprintBehaviour newSpawnable, int newCount, float newSpawnPeriod)
 	{
-		var index = GameComponentsLookup.Spawnable;
-		var component = (DimensionalDoors.Components.Game.Spawnable)CreateComponent(index, typeof(DimensionalDoors.Components.Game.Spawnable));
+		var index = SpawnComponentsLookup.Spawnable;
+		var component = (DimensionalDoors.Components.Spawn.Spawnable)CreateComponent(index, typeof(DimensionalDoors.Components.Spawn.Spawnable));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.spawnable = newSpawnable;
 		component.count = newCount;
@@ -36,10 +36,10 @@ public partial class GameEntity
 		ReplaceComponent(index, component);
 	}
 
-	public void CopySpawnableTo(DimensionalDoors.Components.Game.Spawnable copyComponent)
+	public void CopySpawnableTo(DimensionalDoors.Components.Spawn.Spawnable copyComponent)
 	{
-		var index = GameComponentsLookup.Spawnable;
-		var component = (DimensionalDoors.Components.Game.Spawnable)CreateComponent(index, typeof(DimensionalDoors.Components.Game.Spawnable));
+		var index = SpawnComponentsLookup.Spawnable;
+		var component = (DimensionalDoors.Components.Spawn.Spawnable)CreateComponent(index, typeof(DimensionalDoors.Components.Spawn.Spawnable));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.spawnable = copyComponent.spawnable;
 		component.count = copyComponent.count;
@@ -50,7 +50,7 @@ public partial class GameEntity
 
 	public void RemoveSpawnable()
 	{
-		RemoveComponent(GameComponentsLookup.Spawnable);
+		RemoveComponent(SpawnComponentsLookup.Spawnable);
 	}
 }
 
@@ -63,18 +63,18 @@ public partial class GameEntity
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class GameMatcher
+public sealed partial class SpawnMatcher
 {
-	static JCMG.EntitasRedux.IMatcher<GameEntity> _matcherSpawnable;
+	static JCMG.EntitasRedux.IMatcher<SpawnEntity> _matcherSpawnable;
 
-	public static JCMG.EntitasRedux.IMatcher<GameEntity> Spawnable
+	public static JCMG.EntitasRedux.IMatcher<SpawnEntity> Spawnable
 	{
 		get
 		{
 			if (_matcherSpawnable == null)
 			{
-				var matcher = (JCMG.EntitasRedux.Matcher<GameEntity>)JCMG.EntitasRedux.Matcher<GameEntity>.AllOf(GameComponentsLookup.Spawnable);
-				matcher.ComponentNames = GameComponentsLookup.ComponentNames;
+				var matcher = (JCMG.EntitasRedux.Matcher<SpawnEntity>)JCMG.EntitasRedux.Matcher<SpawnEntity>.AllOf(SpawnComponentsLookup.Spawnable);
+				matcher.ComponentNames = SpawnComponentsLookup.ComponentNames;
 				_matcherSpawnable = matcher;
 			}
 

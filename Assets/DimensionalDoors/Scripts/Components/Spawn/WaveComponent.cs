@@ -1,9 +1,9 @@
 ﻿using System;
 using JCMG.EntitasRedux;
 
-namespace DimensionalDoors.Components.Game
+namespace DimensionalDoors.Components.Spawn
 {
-    [Game, Serializable]
+    [Spawn, Serializable]
     public sealed class WaveComponent : IComponent
     {
         public int currentWave;

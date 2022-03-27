@@ -7,15 +7,15 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameEntity
+public partial class SpawnEntity
 {
-	public DimensionalDoors.Components.Game.WaveComponent Wave { get { return (DimensionalDoors.Components.Game.WaveComponent)GetComponent(GameComponentsLookup.Wave); } }
-	public bool HasWave { get { return HasComponent(GameComponentsLookup.Wave); } }
+	public DimensionalDoors.Components.Spawn.WaveComponent Wave { get { return (DimensionalDoors.Components.Spawn.WaveComponent)GetComponent(SpawnComponentsLookup.Wave); } }
+	public bool HasWave { get { return HasComponent(SpawnComponentsLookup.Wave); } }
 
 	public void AddWave(int newCurrentWave)
 	{
-		var index = GameComponentsLookup.Wave;
-		var component = (DimensionalDoors.Components.Game.WaveComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Game.WaveComponent));
+		var index = SpawnComponentsLookup.Wave;
+		var component = (DimensionalDoors.Components.Spawn.WaveComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Spawn.WaveComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.currentWave = newCurrentWave;
 		#endif
@@ -24,18 +24,18 @@ public partial class GameEntity
 
 	public void ReplaceWave(int newCurrentWave)
 	{
-		var index = GameComponentsLookup.Wave;
-		var component = (DimensionalDoors.Components.Game.WaveComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Game.WaveComponent));
+		var index = SpawnComponentsLookup.Wave;
+		var component = (DimensionalDoors.Components.Spawn.WaveComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Spawn.WaveComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.currentWave = newCurrentWave;
 		#endif
 		ReplaceComponent(index, component);
 	}
 
-	public void CopyWaveTo(DimensionalDoors.Components.Game.WaveComponent copyComponent)
+	public void CopyWaveTo(DimensionalDoors.Components.Spawn.WaveComponent copyComponent)
 	{
-		var index = GameComponentsLookup.Wave;
-		var component = (DimensionalDoors.Components.Game.WaveComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Game.WaveComponent));
+		var index = SpawnComponentsLookup.Wave;
+		var component = (DimensionalDoors.Components.Spawn.WaveComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Spawn.WaveComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.currentWave = copyComponent.currentWave;
 		#endif
@@ -44,7 +44,7 @@ public partial class GameEntity
 
 	public void RemoveWave()
 	{
-		RemoveComponent(GameComponentsLookup.Wave);
+		RemoveComponent(SpawnComponentsLookup.Wave);
 	}
 }
 
@@ -57,18 +57,18 @@ public partial class GameEntity
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class GameMatcher
+public sealed partial class SpawnMatcher
 {
-	static JCMG.EntitasRedux.IMatcher<GameEntity> _matcherWave;
+	static JCMG.EntitasRedux.IMatcher<SpawnEntity> _matcherWave;
 
-	public static JCMG.EntitasRedux.IMatcher<GameEntity> Wave
+	public static JCMG.EntitasRedux.IMatcher<SpawnEntity> Wave
 	{
 		get
 		{
 			if (_matcherWave == null)
 			{
-				var matcher = (JCMG.EntitasRedux.Matcher<GameEntity>)JCMG.EntitasRedux.Matcher<GameEntity>.AllOf(GameComponentsLookup.Wave);
-				matcher.ComponentNames = GameComponentsLookup.ComponentNames;
+				var matcher = (JCMG.EntitasRedux.Matcher<SpawnEntity>)JCMG.EntitasRedux.Matcher<SpawnEntity>.AllOf(SpawnComponentsLookup.Wave);
+				matcher.ComponentNames = SpawnComponentsLookup.ComponentNames;
 				_matcherWave = matcher;
 			}
 

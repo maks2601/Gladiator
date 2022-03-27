@@ -1,18 +1,18 @@
 ﻿using DimensionalDoors.Extensions;
 using JCMG.EntitasRedux;
-using UnityEngine;
 
 namespace DimensionalDoors.Systems.LogicSystems
 {
     public class SpawnSystem : IUpdateSystem
     {
-        private readonly GameContext _context;
-        private readonly IGroup<GameEntity> _spawnableGroup;
+        private readonly Contexts _contexts;
+        private readonly IGroup<SpawnEntity> _spawnableGroup;
 
         public SpawnSystem(Contexts contexts)
         {
-            _context = contexts.Game;
-            _spawnableGroup = _context.GetGroup(GameMatcher.AllOf(GameMatcher.Spawnable).NoneOf(GameMatcher.Timer));
+            _contexts = contexts;
+            _spawnableGroup =
+                _contexts.Spawn.GetGroup(SpawnMatcher.AllOf(SpawnMatcher.Spawnable).NoneOf(SpawnMatcher.Timer));
         }
 
         public void Update()
@@ -25,7 +25,7 @@ namespace DimensionalDoors.Systems.LogicSystems
                     continue;
                 }
 
-                var spawnedEntity = e.Spawnable.spawnable.CreateEntity(_context, true);
+                var spawnedEntity = e.Spawnable.spawnable.CreateEntity(_contexts.Game, true);
                 spawnedEntity.IsSpawned = true;
                 e.Spawnable.count--;
                 e.AddTimer(e.Spawnable.spawnPeriod);

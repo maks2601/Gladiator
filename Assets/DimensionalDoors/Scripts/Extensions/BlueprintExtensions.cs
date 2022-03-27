@@ -26,5 +26,16 @@ namespace DimensionalDoors.Extensions
             Object.Destroy(blueprint);
             return entity;
         }
+        
+        public static SpawnEntity CreateEntity(this SpawnBlueprintBehaviour blueprint, SpawnContext context,
+            bool instantiate = false)
+        {
+            var entity = context.CreateEntity();
+            if (instantiate) blueprint = Object.Instantiate(blueprint);
+            blueprint.gameObject.Link(entity);
+            blueprint.ApplyToEntity(entity);
+            Object.Destroy(blueprint);
+            return entity;
+        }
     }
 }

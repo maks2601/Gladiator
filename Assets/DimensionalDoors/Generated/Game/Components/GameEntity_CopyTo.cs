@@ -18,17 +18,13 @@ public partial class GameEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is DimensionalDoors.Components.Game.Spawned Spawned)
-		{
-			IsSpawned = true;
-		}
-		else if (component is DimensionalDoors.Components.Game.RandomCirclePositionComponent RandomCirclePosition)
-		{
-			CopyRandomCirclePositionTo(RandomCirclePosition);
-		}
-		else if (component is DimensionalDoors.Components.Game.ViewComponent View)
+		if (component is DimensionalDoors.Components.Game.ViewComponent View)
 		{
 			CopyViewTo(View);
+		}
+		else if (component is DimensionalDoors.Components.Game.Spawned Spawned)
+		{
+			IsSpawned = true;
 		}
 		else if (component is DimensionalDoors.Components.Game.CollisionsComponent Collisions)
 		{
@@ -50,17 +46,13 @@ public partial class GameEntity
 		{
 			IsMoving = true;
 		}
+		else if (component is DimensionalDoors.Components.Game.RandomCirclePositionComponent RandomCirclePosition)
+		{
+			CopyRandomCirclePositionTo(RandomCirclePosition);
+		}
 		else if (component is DimensionalDoors.Components.Game.Move Move)
 		{
 			CopyMoveTo(Move);
-		}
-		else if (component is DimensionalDoors.Components.Game.ArenaComponent Arena)
-		{
-			CopyArenaTo(Arena);
-		}
-		else if (component is DimensionalDoors.Components.Game.SpawnerComponent Spawner)
-		{
-			CopySpawnerTo(Spawner);
 		}
 		else if (component is DimensionalDoors.Components.Game.TimerComponent Timer)
 		{
@@ -73,14 +65,6 @@ public partial class GameEntity
 		else if (component is DimensionalDoors.Components.Game.PhysicsComponent Physics)
 		{
 			CopyPhysicsTo(Physics);
-		}
-		else if (component is DimensionalDoors.Components.Game.Spawnable Spawnable)
-		{
-			CopySpawnableTo(Spawnable);
-		}
-		else if (component is DimensionalDoors.Components.Game.WaveComponent Wave)
-		{
-			CopyWaveTo(Wave);
 		}
 		#endif
 	}

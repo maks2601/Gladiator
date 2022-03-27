@@ -3,26 +3,26 @@ using JCMG.EntitasRedux;
 
 namespace DimensionalDoors.Systems.InitializeSystems
 {
-    public class SpawnersInitializeSystem : ReactiveSystem<GameEntity>
+    public class SpawnersInitializeSystem : ReactiveSystem<SpawnEntity>
     {
-        private readonly GameContext _context;
+        private readonly SpawnContext _context;
         
-        public SpawnersInitializeSystem(Contexts contexts) : base(contexts.Game)
+        public SpawnersInitializeSystem(Contexts contexts) : base(contexts.Spawn)
         {
-            _context = contexts.Game;
+            _context = contexts.Spawn;
         }
 
-        protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
+        protected override ICollector<SpawnEntity> GetTrigger(IContext<SpawnEntity> context)
         {
-            return context.CreateCollector(GameMatcher.Arena.Added(), GameMatcher.Wave.Added());
+            return context.CreateCollector(SpawnMatcher.Arena.Added(), SpawnMatcher.Wave.Added());
         }
 
-        protected override bool Filter(GameEntity entity)
+        protected override bool Filter(SpawnEntity entity)
         {
             return entity.HasSpawner && entity.HasArena && entity.HasWave;
         }
 
-        protected override void Execute(List<GameEntity> entities)
+        protected override void Execute(List<SpawnEntity> entities)
         {
             foreach (var e in entities)
             {

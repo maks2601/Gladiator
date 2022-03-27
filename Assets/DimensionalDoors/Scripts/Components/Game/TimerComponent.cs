@@ -3,7 +3,7 @@ using JCMG.EntitasRedux;
 
 namespace DimensionalDoors.Components.Game
 {
-    [Game, Serializable]
+    [Game, Input, Spawn, Serializable]
     public sealed class TimerComponent : IComponent
     {
         public float time;

@@ -5,18 +5,23 @@ namespace DimensionalDoors.Systems.LogicSystems
 {
     public class TimerSystem : IUpdateSystem
     {
-        private readonly GameContext _context;
-        private readonly IGroup<GameEntity> _timerGroup;
+        private readonly IGroup<GameEntity> _gameTimerGroup;
+        private readonly IGroup<SpawnEntity> _spawnTimerGroup;
 
         public TimerSystem(Contexts contexts)
         {
-            _context = contexts.Game;
-            _timerGroup = _context.GetGroup(GameMatcher.Timer);
+            _gameTimerGroup = contexts.Game.GetGroup(GameMatcher.Timer);
+            _spawnTimerGroup = contexts.Spawn.GetGroup(SpawnMatcher.Timer);
         }
         
         public void Update()
         {
-            foreach (var e in _timerGroup.GetEntities())
+            foreach (var e in _gameTimerGroup.GetEntities())
+            {
+                e.Timer.time -= Time.deltaTime;
+                if(e.Timer.time <= 0) e.RemoveTimer();
+            }
+            foreach (var e in _spawnTimerGroup.GetEntities())
             {
                 e.Timer.time -= Time.deltaTime;
                 if(e.Timer.time <= 0) e.RemoveTimer();

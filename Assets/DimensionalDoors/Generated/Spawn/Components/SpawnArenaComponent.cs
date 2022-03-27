@@ -7,15 +7,15 @@
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameEntity
+public partial class SpawnEntity
 {
-	public DimensionalDoors.Components.Game.ArenaComponent Arena { get { return (DimensionalDoors.Components.Game.ArenaComponent)GetComponent(GameComponentsLookup.Arena); } }
-	public bool HasArena { get { return HasComponent(GameComponentsLookup.Arena); } }
+	public DimensionalDoors.Components.Spawn.ArenaComponent Arena { get { return (DimensionalDoors.Components.Spawn.ArenaComponent)GetComponent(SpawnComponentsLookup.Arena); } }
+	public bool HasArena { get { return HasComponent(SpawnComponentsLookup.Arena); } }
 
 	public void AddArena(int newCurrentArena)
 	{
-		var index = GameComponentsLookup.Arena;
-		var component = (DimensionalDoors.Components.Game.ArenaComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Game.ArenaComponent));
+		var index = SpawnComponentsLookup.Arena;
+		var component = (DimensionalDoors.Components.Spawn.ArenaComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Spawn.ArenaComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.currentArena = newCurrentArena;
 		#endif
@@ -24,18 +24,18 @@ public partial class GameEntity
 
 	public void ReplaceArena(int newCurrentArena)
 	{
-		var index = GameComponentsLookup.Arena;
-		var component = (DimensionalDoors.Components.Game.ArenaComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Game.ArenaComponent));
+		var index = SpawnComponentsLookup.Arena;
+		var component = (DimensionalDoors.Components.Spawn.ArenaComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Spawn.ArenaComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.currentArena = newCurrentArena;
 		#endif
 		ReplaceComponent(index, component);
 	}
 
-	public void CopyArenaTo(DimensionalDoors.Components.Game.ArenaComponent copyComponent)
+	public void CopyArenaTo(DimensionalDoors.Components.Spawn.ArenaComponent copyComponent)
 	{
-		var index = GameComponentsLookup.Arena;
-		var component = (DimensionalDoors.Components.Game.ArenaComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Game.ArenaComponent));
+		var index = SpawnComponentsLookup.Arena;
+		var component = (DimensionalDoors.Components.Spawn.ArenaComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Spawn.ArenaComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
 		component.currentArena = copyComponent.currentArena;
 		#endif
@@ -44,7 +44,7 @@ public partial class GameEntity
 
 	public void RemoveArena()
 	{
-		RemoveComponent(GameComponentsLookup.Arena);
+		RemoveComponent(SpawnComponentsLookup.Arena);
 	}
 }
 
@@ -57,18 +57,18 @@ public partial class GameEntity
 //		the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class GameMatcher
+public sealed partial class SpawnMatcher
 {
-	static JCMG.EntitasRedux.IMatcher<GameEntity> _matcherArena;
+	static JCMG.EntitasRedux.IMatcher<SpawnEntity> _matcherArena;
 
-	public static JCMG.EntitasRedux.IMatcher<GameEntity> Arena
+	public static JCMG.EntitasRedux.IMatcher<SpawnEntity> Arena
 	{
 		get
 		{
 			if (_matcherArena == null)
 			{
-				var matcher = (JCMG.EntitasRedux.Matcher<GameEntity>)JCMG.EntitasRedux.Matcher<GameEntity>.AllOf(GameComponentsLookup.Arena);
-				matcher.ComponentNames = GameComponentsLookup.ComponentNames;
+				var matcher = (JCMG.EntitasRedux.Matcher<SpawnEntity>)JCMG.EntitasRedux.Matcher<SpawnEntity>.AllOf(SpawnComponentsLookup.Arena);
+				matcher.ComponentNames = SpawnComponentsLookup.ComponentNames;
 				_matcherArena = matcher;
 			}
 
