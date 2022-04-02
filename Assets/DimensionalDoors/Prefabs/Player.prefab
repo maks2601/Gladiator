@@ -227,9 +227,12 @@ MonoBehaviour:
   - rid: 4678412663933108227
   - rid: 4678412663933108228
   - rid: 4678412663933108229
+  - rid: 2206936494831304704
   references:
     version: 2
     RefIds:
+    - rid: 2206936494831304704
+      type: {class: Player, ns: DimensionalDoors.Components.Game, asm: Assembly-CSharp}
     - rid: 4678412663933108225
       type: {class: ViewComponent, ns: DimensionalDoors.Components.Game, asm: Assembly-CSharp}
       data:

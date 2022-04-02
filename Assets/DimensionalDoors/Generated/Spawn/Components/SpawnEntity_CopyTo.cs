@@ -22,10 +22,6 @@ public partial class SpawnEntity
 		{
 			CopyTimerTo(Timer);
 		}
-		else if (component is DimensionalDoors.Components.Spawn.GameConfigComponent GameConfig)
-		{
-			CopyGameConfigTo(GameConfig);
-		}
 		else if (component is DimensionalDoors.Components.Spawn.ArenaComponent Arena)
 		{
 			CopyArenaTo(Arena);
@@ -33,6 +29,10 @@ public partial class SpawnEntity
 		else if (component is DimensionalDoors.Components.Spawn.SpawnerComponent Spawner)
 		{
 			CopySpawnerTo(Spawner);
+		}
+		else if (component is DimensionalDoors.Components.Spawn.GameConfigComponent GameConfig)
+		{
+			CopyGameConfigTo(GameConfig);
 		}
 		else if (component is DimensionalDoors.Components.Spawn.Spawnable Spawnable)
 		{

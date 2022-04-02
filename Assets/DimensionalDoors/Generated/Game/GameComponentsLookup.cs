@@ -19,14 +19,18 @@ public static class GameComponentsLookup
 	public const int Move = 3;
 	public const int Moving = 4;
 	public const int Physics = 5;
-	public const int RandomCirclePosition = 6;
-	public const int Rotatable = 7;
-	public const int Spawned = 8;
-	public const int TargetPoint = 9;
-	public const int View = 10;
-	public const int Timer = 11;
+	public const int Player = 6;
+	public const int RandomCirclePosition = 7;
+	public const int Rotatable = 8;
+	public const int ScanField = 9;
+	public const int Spawned = 10;
+	public const int TargetObject = 11;
+	public const int TargetPoint = 12;
+	public const int Triggers = 13;
+	public const int View = 14;
+	public const int Timer = 15;
 
-	public const int TotalComponents = 12;
+	public const int TotalComponents = 16;
 
 	public static readonly string[] ComponentNames =
 	{
@@ -36,10 +40,14 @@ public static class GameComponentsLookup
 		"Move",
 		"Moving",
 		"Physics",
+		"Player",
 		"RandomCirclePosition",
 		"Rotatable",
+		"ScanField",
 		"Spawned",
+		"TargetObject",
 		"TargetPoint",
+		"Triggers",
 		"View",
 		"Timer"
 	};
@@ -52,10 +60,14 @@ public static class GameComponentsLookup
 		typeof(DimensionalDoors.Components.Game.Move),
 		typeof(DimensionalDoors.Components.Game.Moving),
 		typeof(DimensionalDoors.Components.Game.PhysicsComponent),
+		typeof(DimensionalDoors.Components.Game.Player),
 		typeof(DimensionalDoors.Components.Game.RandomCirclePositionComponent),
 		typeof(DimensionalDoors.Components.Game.Rotatable),
+		typeof(DimensionalDoors.Components.Game.ScanFieldComponent),
 		typeof(DimensionalDoors.Components.Game.Spawned),
+		typeof(DimensionalDoors.Components.Game.TargetObjectComponent),
 		typeof(DimensionalDoors.Components.Game.TargetPointComponent),
+		typeof(DimensionalDoors.Components.Game.TriggersComponent),
 		typeof(DimensionalDoors.Components.Game.ViewComponent),
 		typeof(DimensionalDoors.Components.TimerComponent)
 	};
@@ -68,12 +80,16 @@ public static class GameComponentsLookup
 		{ typeof(DimensionalDoors.Components.Game.Move), 3 },
 		{ typeof(DimensionalDoors.Components.Game.Moving), 4 },
 		{ typeof(DimensionalDoors.Components.Game.PhysicsComponent), 5 },
-		{ typeof(DimensionalDoors.Components.Game.RandomCirclePositionComponent), 6 },
-		{ typeof(DimensionalDoors.Components.Game.Rotatable), 7 },
-		{ typeof(DimensionalDoors.Components.Game.Spawned), 8 },
-		{ typeof(DimensionalDoors.Components.Game.TargetPointComponent), 9 },
-		{ typeof(DimensionalDoors.Components.Game.ViewComponent), 10 },
-		{ typeof(DimensionalDoors.Components.TimerComponent), 11 }
+		{ typeof(DimensionalDoors.Components.Game.Player), 6 },
+		{ typeof(DimensionalDoors.Components.Game.RandomCirclePositionComponent), 7 },
+		{ typeof(DimensionalDoors.Components.Game.Rotatable), 8 },
+		{ typeof(DimensionalDoors.Components.Game.ScanFieldComponent), 9 },
+		{ typeof(DimensionalDoors.Components.Game.Spawned), 10 },
+		{ typeof(DimensionalDoors.Components.Game.TargetObjectComponent), 11 },
+		{ typeof(DimensionalDoors.Components.Game.TargetPointComponent), 12 },
+		{ typeof(DimensionalDoors.Components.Game.TriggersComponent), 13 },
+		{ typeof(DimensionalDoors.Components.Game.ViewComponent), 14 },
+		{ typeof(DimensionalDoors.Components.TimerComponent), 15 }
 	};
 
 	/// <summary>

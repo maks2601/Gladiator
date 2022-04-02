@@ -22,6 +22,22 @@ public partial class GameEntity
 		{
 			CopyTimerTo(Timer);
 		}
+		else if (component is DimensionalDoors.Components.Game.TargetObjectComponent TargetObject)
+		{
+			CopyTargetObjectTo(TargetObject);
+		}
+		else if (component is DimensionalDoors.Components.Game.Player Player)
+		{
+			IsPlayer = true;
+		}
+		else if (component is DimensionalDoors.Components.Game.TriggersComponent Triggers)
+		{
+			CopyTriggersTo(Triggers);
+		}
+		else if (component is DimensionalDoors.Components.Game.ScanFieldComponent ScanField)
+		{
+			CopyScanFieldTo(ScanField);
+		}
 		else if (component is DimensionalDoors.Components.Game.ViewComponent View)
 		{
 			CopyViewTo(View);

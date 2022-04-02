@@ -5,7 +5,7 @@ namespace DimensionalDoors.Systems.LogicSystems
 {
     public sealed class TargetMoveSystem : IFixedUpdateSystem
     {
-        private GameContext _context;
+        private readonly GameContext _context;
         private readonly IGroup<GameEntity> _movableGroup;
 
         public TargetMoveSystem(Contexts contexts)

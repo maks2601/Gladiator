@@ -9,6 +9,7 @@ namespace DimensionalDoors.Features
             Add(new WaveInitializeSystem(contexts));
             Add(new SpawnersInitializeSystem(contexts));
             Add(new PhysicsInitializeSystem(contexts));
+            Add(new EnemyInitializeSystem(contexts));
         }
     }
 }

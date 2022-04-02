@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 6327302569553396410}
   - component: {fileID: 6327302569553396411}
   - component: {fileID: 6327302569553396408}
+  - component: {fileID: 5259578100025555046}
   - component: {fileID: 7810438981399168073}
   m_Layer: 0
   m_Name: Enemy
@@ -209,6 +210,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!58 &5259578100025555046
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6327302569553396402}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!114 &7810438981399168073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,9 +244,15 @@ MonoBehaviour:
   - rid: 4678412663933108227
   - rid: 4678412663933108228
   - rid: 4678412688152592384
+  - rid: 2206936494831304705
   references:
     version: 2
     RefIds:
+    - rid: 2206936494831304705
+      type: {class: ScanFieldComponent, ns: DimensionalDoors.Components.Game, asm: Assembly-CSharp}
+      data:
+        scanField: {fileID: 5259578100025555046}
+        fieldSize: 5
     - rid: 4678412663933108225
       type: {class: ViewComponent, ns: DimensionalDoors.Components.Game, asm: Assembly-CSharp}
       data:
@@ -241,7 +264,7 @@ MonoBehaviour:
     - rid: 4678412663933108227
       type: {class: Move, ns: DimensionalDoors.Components.Game, asm: Assembly-CSharp}
       data:
-        speed: 3
+        speed: 2
     - rid: 4678412663933108228
       type: {class: Rotatable, ns: DimensionalDoors.Components.Game, asm: Assembly-CSharp}
     - rid: 4678412688152592384
