@@ -18,13 +18,17 @@ public partial class InputEntity
 	public void CopyComponentTo(IComponent component)
 	{
 		#if !ENTITAS_REDUX_NO_IMPL
-		if (component is DimensionalDoors.Components.Input.DisplayInputComponent DisplayInput)
+		if (component is DimensionalDoors.Components.TimerComponent Timer)
 		{
-			CopyDisplayInputTo(DisplayInput);
+			CopyTimerTo(Timer);
 		}
 		else if (component is DimensionalDoors.Components.Input.ScreenToWorldPoint ScreenToWorldPoint)
 		{
 			CopyScreenToWorldPointTo(ScreenToWorldPoint);
+		}
+		else if (component is DimensionalDoors.Components.Input.DisplayInputComponent DisplayInput)
+		{
+			CopyDisplayInputTo(DisplayInput);
 		}
 		else if (component is DimensionalDoors.Components.Input.Touched Touched)
 		{

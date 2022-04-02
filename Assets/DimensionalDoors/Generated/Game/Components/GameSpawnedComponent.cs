@@ -9,22 +9,22 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity
 {
-	static readonly DimensionalDoors.Components.Game.Spawnable SpawnableComponent = new DimensionalDoors.Components.Game.Spawnable();
+	static readonly DimensionalDoors.Components.Game.Spawned SpawnedComponent = new DimensionalDoors.Components.Game.Spawned();
 
-	public bool IsSpawnable
+	public bool IsSpawned
 	{
-		get { return HasComponent(GameComponentsLookup.Spawnable); }
+		get { return HasComponent(GameComponentsLookup.Spawned); }
 		set
 		{
-			if (value != IsSpawnable)
+			if (value != IsSpawned)
 			{
-				var index = GameComponentsLookup.Spawnable;
+				var index = GameComponentsLookup.Spawned;
 				if (value)
 				{
 					var componentPool = GetComponentPool(index);
 					var component = componentPool.Count > 0
 							? componentPool.Pop()
-							: SpawnableComponent;
+							: SpawnedComponent;
 
 					AddComponent(index, component);
 				}
@@ -48,20 +48,20 @@ public partial class GameEntity
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher
 {
-	static JCMG.EntitasRedux.IMatcher<GameEntity> _matcherSpawnable;
+	static JCMG.EntitasRedux.IMatcher<GameEntity> _matcherSpawned;
 
-	public static JCMG.EntitasRedux.IMatcher<GameEntity> Spawnable
+	public static JCMG.EntitasRedux.IMatcher<GameEntity> Spawned
 	{
 		get
 		{
-			if (_matcherSpawnable == null)
+			if (_matcherSpawned == null)
 			{
-				var matcher = (JCMG.EntitasRedux.Matcher<GameEntity>)JCMG.EntitasRedux.Matcher<GameEntity>.AllOf(GameComponentsLookup.Spawnable);
+				var matcher = (JCMG.EntitasRedux.Matcher<GameEntity>)JCMG.EntitasRedux.Matcher<GameEntity>.AllOf(GameComponentsLookup.Spawned);
 				matcher.ComponentNames = GameComponentsLookup.ComponentNames;
-				_matcherSpawnable = matcher;
+				_matcherSpawned = matcher;
 			}
 
-			return _matcherSpawnable;
+			return _matcherSpawned;
 		}
 	}
 }

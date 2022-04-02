@@ -12,7 +12,7 @@ namespace DimensionalDoors.Systems.InitializeSystems
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
-            return context.CreateCollector(GameMatcher.Spawnable.Removed());
+            return context.CreateCollector(GameMatcher.Spawned.Added());
         }
 
         protected override bool Filter(GameEntity entity)

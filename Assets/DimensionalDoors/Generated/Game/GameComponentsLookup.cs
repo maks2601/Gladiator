@@ -19,12 +19,14 @@ public static class GameComponentsLookup
 	public const int Move = 3;
 	public const int Moving = 4;
 	public const int Physics = 5;
-	public const int Rotatable = 6;
-	public const int Spawnable = 7;
-	public const int TargetPoint = 8;
-	public const int View = 9;
+	public const int RandomCirclePosition = 6;
+	public const int Rotatable = 7;
+	public const int Spawned = 8;
+	public const int TargetPoint = 9;
+	public const int View = 10;
+	public const int Timer = 11;
 
-	public const int TotalComponents = 10;
+	public const int TotalComponents = 12;
 
 	public static readonly string[] ComponentNames =
 	{
@@ -34,10 +36,12 @@ public static class GameComponentsLookup
 		"Move",
 		"Moving",
 		"Physics",
+		"RandomCirclePosition",
 		"Rotatable",
-		"Spawnable",
+		"Spawned",
 		"TargetPoint",
-		"View"
+		"View",
+		"Timer"
 	};
 
 	public static readonly System.Type[] ComponentTypes =
@@ -48,10 +52,12 @@ public static class GameComponentsLookup
 		typeof(DimensionalDoors.Components.Game.Move),
 		typeof(DimensionalDoors.Components.Game.Moving),
 		typeof(DimensionalDoors.Components.Game.PhysicsComponent),
+		typeof(DimensionalDoors.Components.Game.RandomCirclePositionComponent),
 		typeof(DimensionalDoors.Components.Game.Rotatable),
-		typeof(DimensionalDoors.Components.Game.Spawnable),
+		typeof(DimensionalDoors.Components.Game.Spawned),
 		typeof(DimensionalDoors.Components.Game.TargetPointComponent),
-		typeof(DimensionalDoors.Components.Game.ViewComponent)
+		typeof(DimensionalDoors.Components.Game.ViewComponent),
+		typeof(DimensionalDoors.Components.TimerComponent)
 	};
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
@@ -62,10 +68,12 @@ public static class GameComponentsLookup
 		{ typeof(DimensionalDoors.Components.Game.Move), 3 },
 		{ typeof(DimensionalDoors.Components.Game.Moving), 4 },
 		{ typeof(DimensionalDoors.Components.Game.PhysicsComponent), 5 },
-		{ typeof(DimensionalDoors.Components.Game.Rotatable), 6 },
-		{ typeof(DimensionalDoors.Components.Game.Spawnable), 7 },
-		{ typeof(DimensionalDoors.Components.Game.TargetPointComponent), 8 },
-		{ typeof(DimensionalDoors.Components.Game.ViewComponent), 9 }
+		{ typeof(DimensionalDoors.Components.Game.RandomCirclePositionComponent), 6 },
+		{ typeof(DimensionalDoors.Components.Game.Rotatable), 7 },
+		{ typeof(DimensionalDoors.Components.Game.Spawned), 8 },
+		{ typeof(DimensionalDoors.Components.Game.TargetPointComponent), 9 },
+		{ typeof(DimensionalDoors.Components.Game.ViewComponent), 10 },
+		{ typeof(DimensionalDoors.Components.TimerComponent), 11 }
 	};
 
 	/// <summary>
