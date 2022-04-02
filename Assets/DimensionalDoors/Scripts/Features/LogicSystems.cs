@@ -10,9 +10,10 @@ namespace DimensionalDoors.Features
             Add(new RotateSystem(contexts));
             Add(new FollowTargetSystem(contexts));
             Add(new TargetMoveSystem(contexts));
-            Add(new CollisionSystem(contexts));
+            Add(new AttackHandleSystem(contexts));
             Add(new ScanSystem(contexts));
             Add(new UpdateScanFieldSystem(contexts));
+            Add(new DieSystem(contexts));
             Add(new TimerSystem(contexts));
         }	
     }

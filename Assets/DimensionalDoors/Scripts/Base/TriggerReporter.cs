@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JCMG.EntitasRedux;
 using UnityEngine;
 
 namespace DimensionalDoors.Base
@@ -9,8 +10,12 @@ namespace DimensionalDoors.Base
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!entity.HasTriggers) entity.AddTriggers(new List<GameObject>());
-            entity.Triggers.list.Add(other.gameObject);
+            if (!entity.HasTriggers) entity.AddTriggers(new List<GameEntity>());
+            var otherEntityLink = other.gameObject.GetEntityLink();
+            if (otherEntityLink == null) return;
+            var otherEntity = otherEntityLink.Entity;
+            if (otherEntity is not GameEntity gameEntity) return;
+            entity.Triggers.list.Add(gameEntity);
         }
     }
 }

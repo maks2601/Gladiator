@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JCMG.EntitasRedux;
 using UnityEngine;
 
 namespace DimensionalDoors.Base
@@ -9,8 +10,12 @@ namespace DimensionalDoors.Base
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (!entity.HasCollisions) entity.AddCollisions(new List<GameObject>());
-            entity.Collisions.list.Add(other.gameObject);
+            if (!entity.HasCollisions) entity.AddCollisions(new List<GameEntity>());
+            var otherEntityLink = other.gameObject.GetEntityLink();
+            if (otherEntityLink == null) return;
+            var otherEntity = otherEntityLink.Entity;
+            if (otherEntity is not GameEntity gameEntity) return;
+            entity.Collisions.list.Add(gameEntity);
         }
     }
 }

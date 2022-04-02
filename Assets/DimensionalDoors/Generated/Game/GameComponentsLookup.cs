@@ -13,27 +13,32 @@ using JCMG.EntitasRedux;
 
 public static class GameComponentsLookup
 {
-	public const int Collisions = 0;
-	public const int Controlled = 1;
-	public const int FollowCamera = 2;
-	public const int Move = 3;
-	public const int Moving = 4;
-	public const int Physics = 5;
-	public const int Player = 6;
-	public const int RandomCirclePosition = 7;
-	public const int Rotatable = 8;
-	public const int ScanField = 9;
-	public const int Spawned = 10;
-	public const int TargetObject = 11;
-	public const int TargetPoint = 12;
-	public const int Triggers = 13;
-	public const int View = 14;
-	public const int Timer = 15;
+	public const int Attacked = 0;
+	public const int Collisions = 1;
+	public const int Controlled = 2;
+	public const int FollowCamera = 3;
+	public const int Move = 4;
+	public const int Moving = 5;
+	public const int Physics = 6;
+	public const int Player = 7;
+	public const int RandomCirclePosition = 8;
+	public const int Rotatable = 9;
+	public const int ScanField = 10;
+	public const int Spawned = 11;
+	public const int TargetObject = 12;
+	public const int TargetPoint = 13;
+	public const int Triggers = 14;
+	public const int View = 15;
+	public const int Weapon = 16;
+	public const int WeaponHolder = 17;
+	public const int WeaponInitialize = 18;
+	public const int Timer = 19;
 
-	public const int TotalComponents = 16;
+	public const int TotalComponents = 20;
 
 	public static readonly string[] ComponentNames =
 	{
+		"Attacked",
 		"Collisions",
 		"Controlled",
 		"FollowCamera",
@@ -49,11 +54,15 @@ public static class GameComponentsLookup
 		"TargetPoint",
 		"Triggers",
 		"View",
+		"Weapon",
+		"WeaponHolder",
+		"WeaponInitialize",
 		"Timer"
 	};
 
 	public static readonly System.Type[] ComponentTypes =
 	{
+		typeof(DimensionalDoors.Components.Game.Attacked),
 		typeof(DimensionalDoors.Components.Game.CollisionsComponent),
 		typeof(DimensionalDoors.Components.Game.Controlled),
 		typeof(DimensionalDoors.Components.Game.FollowCameraComponent),
@@ -69,27 +78,34 @@ public static class GameComponentsLookup
 		typeof(DimensionalDoors.Components.Game.TargetPointComponent),
 		typeof(DimensionalDoors.Components.Game.TriggersComponent),
 		typeof(DimensionalDoors.Components.Game.ViewComponent),
+		typeof(DimensionalDoors.Components.Game.Weapon),
+		typeof(DimensionalDoors.Components.Game.WeaponHolderComponent),
+		typeof(DimensionalDoors.Components.Game.WeaponInitializeComponent),
 		typeof(DimensionalDoors.Components.TimerComponent)
 	};
 
 	public static readonly Dictionary<Type, int> ComponentTypeToIndex = new Dictionary<Type, int>
 	{
-		{ typeof(DimensionalDoors.Components.Game.CollisionsComponent), 0 },
-		{ typeof(DimensionalDoors.Components.Game.Controlled), 1 },
-		{ typeof(DimensionalDoors.Components.Game.FollowCameraComponent), 2 },
-		{ typeof(DimensionalDoors.Components.Game.Move), 3 },
-		{ typeof(DimensionalDoors.Components.Game.Moving), 4 },
-		{ typeof(DimensionalDoors.Components.Game.PhysicsComponent), 5 },
-		{ typeof(DimensionalDoors.Components.Game.Player), 6 },
-		{ typeof(DimensionalDoors.Components.Game.RandomCirclePositionComponent), 7 },
-		{ typeof(DimensionalDoors.Components.Game.Rotatable), 8 },
-		{ typeof(DimensionalDoors.Components.Game.ScanFieldComponent), 9 },
-		{ typeof(DimensionalDoors.Components.Game.Spawned), 10 },
-		{ typeof(DimensionalDoors.Components.Game.TargetObjectComponent), 11 },
-		{ typeof(DimensionalDoors.Components.Game.TargetPointComponent), 12 },
-		{ typeof(DimensionalDoors.Components.Game.TriggersComponent), 13 },
-		{ typeof(DimensionalDoors.Components.Game.ViewComponent), 14 },
-		{ typeof(DimensionalDoors.Components.TimerComponent), 15 }
+		{ typeof(DimensionalDoors.Components.Game.Attacked), 0 },
+		{ typeof(DimensionalDoors.Components.Game.CollisionsComponent), 1 },
+		{ typeof(DimensionalDoors.Components.Game.Controlled), 2 },
+		{ typeof(DimensionalDoors.Components.Game.FollowCameraComponent), 3 },
+		{ typeof(DimensionalDoors.Components.Game.Move), 4 },
+		{ typeof(DimensionalDoors.Components.Game.Moving), 5 },
+		{ typeof(DimensionalDoors.Components.Game.PhysicsComponent), 6 },
+		{ typeof(DimensionalDoors.Components.Game.Player), 7 },
+		{ typeof(DimensionalDoors.Components.Game.RandomCirclePositionComponent), 8 },
+		{ typeof(DimensionalDoors.Components.Game.Rotatable), 9 },
+		{ typeof(DimensionalDoors.Components.Game.ScanFieldComponent), 10 },
+		{ typeof(DimensionalDoors.Components.Game.Spawned), 11 },
+		{ typeof(DimensionalDoors.Components.Game.TargetObjectComponent), 12 },
+		{ typeof(DimensionalDoors.Components.Game.TargetPointComponent), 13 },
+		{ typeof(DimensionalDoors.Components.Game.TriggersComponent), 14 },
+		{ typeof(DimensionalDoors.Components.Game.ViewComponent), 15 },
+		{ typeof(DimensionalDoors.Components.Game.Weapon), 16 },
+		{ typeof(DimensionalDoors.Components.Game.WeaponHolderComponent), 17 },
+		{ typeof(DimensionalDoors.Components.Game.WeaponInitializeComponent), 18 },
+		{ typeof(DimensionalDoors.Components.TimerComponent), 19 }
 	};
 
 	/// <summary>

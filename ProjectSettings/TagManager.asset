@@ -47,6 +47,9 @@ TagManager:
   - name: Gladiators
     uniqueID: 3763932321
     locked: 0
+  - name: Weapons
+    uniqueID: 1400823153
+    locked: 0
   - name: UI
     uniqueID: 3861903437
     locked: 0

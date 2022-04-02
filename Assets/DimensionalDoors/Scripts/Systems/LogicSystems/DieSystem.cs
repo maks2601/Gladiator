@@ -1,34 +1,36 @@
 ﻿using System.Collections.Generic;
+using DimensionalDoors.Extensions;
 using JCMG.EntitasRedux;
 using UnityEngine;
 
 namespace DimensionalDoors.Systems.LogicSystems
 {
-    public sealed class CollisionSystem : ReactiveSystem<GameEntity>
+    public class DieSystem : ReactiveSystem<GameEntity>
     {
-        public CollisionSystem(Contexts contexts) : base(contexts.Game)
+        public DieSystem(Contexts contexts) : base(contexts.Game)
         {
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
-            return context.CreateCollector(GameMatcher.Collisions.Added());
+            return context.CreateCollector(GameMatcher.Attacked.Added());
         }
 
         protected override bool Filter(GameEntity entity)
         {
-            return entity.HasCollisions;
+            return entity.IsAttacked && entity.HasView;
         }
 
         protected override void Execute(List<GameEntity> entities)
         {
             foreach (var e in entities)
             {
-                foreach (var collision in e.Collisions.list)
+                if (e.HasWeaponHolder)
                 {
-                    Debug.Log(collision.name);
+                    var weapon = e.WeaponHolder.weapon;
+                    weapon.UnlinkAndDestroy();
                 }
-                e.RemoveCollisions();
+                e.UnlinkAndDestroy();
             }
         }
     }

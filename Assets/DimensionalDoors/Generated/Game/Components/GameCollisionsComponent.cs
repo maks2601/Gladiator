@@ -12,7 +12,7 @@ public partial class GameEntity
 	public DimensionalDoors.Components.Game.CollisionsComponent Collisions { get { return (DimensionalDoors.Components.Game.CollisionsComponent)GetComponent(GameComponentsLookup.Collisions); } }
 	public bool HasCollisions { get { return HasComponent(GameComponentsLookup.Collisions); } }
 
-	public void AddCollisions(System.Collections.Generic.List<UnityEngine.GameObject> newList)
+	public void AddCollisions(System.Collections.Generic.List<GameEntity> newList)
 	{
 		var index = GameComponentsLookup.Collisions;
 		var component = (DimensionalDoors.Components.Game.CollisionsComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Game.CollisionsComponent));
@@ -22,7 +22,7 @@ public partial class GameEntity
 		AddComponent(index, component);
 	}
 
-	public void ReplaceCollisions(System.Collections.Generic.List<UnityEngine.GameObject> newList)
+	public void ReplaceCollisions(System.Collections.Generic.List<GameEntity> newList)
 	{
 		var index = GameComponentsLookup.Collisions;
 		var component = (DimensionalDoors.Components.Game.CollisionsComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Game.CollisionsComponent));
@@ -37,7 +37,7 @@ public partial class GameEntity
 		var index = GameComponentsLookup.Collisions;
 		var component = (DimensionalDoors.Components.Game.CollisionsComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Game.CollisionsComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
-		component.list = (System.Collections.Generic.List<UnityEngine.GameObject>)JCMG.EntitasRedux.ListTools.ShallowCopy(copyComponent.list);
+		component.list = (System.Collections.Generic.List<GameEntity>)JCMG.EntitasRedux.ListTools.ShallowCopy(copyComponent.list);
 		#endif
 		ReplaceComponent(index, component);
 	}

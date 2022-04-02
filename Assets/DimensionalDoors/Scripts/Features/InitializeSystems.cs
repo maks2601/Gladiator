@@ -10,6 +10,7 @@ namespace DimensionalDoors.Features
             Add(new SpawnersInitializeSystem(contexts));
             Add(new PhysicsInitializeSystem(contexts));
             Add(new EnemyInitializeSystem(contexts));
+            Add(new PlayerInitializeSystem(contexts));
         }
     }
 }

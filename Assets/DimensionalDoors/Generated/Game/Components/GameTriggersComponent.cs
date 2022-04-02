@@ -12,7 +12,7 @@ public partial class GameEntity
 	public DimensionalDoors.Components.Game.TriggersComponent Triggers { get { return (DimensionalDoors.Components.Game.TriggersComponent)GetComponent(GameComponentsLookup.Triggers); } }
 	public bool HasTriggers { get { return HasComponent(GameComponentsLookup.Triggers); } }
 
-	public void AddTriggers(System.Collections.Generic.List<UnityEngine.GameObject> newList)
+	public void AddTriggers(System.Collections.Generic.List<GameEntity> newList)
 	{
 		var index = GameComponentsLookup.Triggers;
 		var component = (DimensionalDoors.Components.Game.TriggersComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Game.TriggersComponent));
@@ -22,7 +22,7 @@ public partial class GameEntity
 		AddComponent(index, component);
 	}
 
-	public void ReplaceTriggers(System.Collections.Generic.List<UnityEngine.GameObject> newList)
+	public void ReplaceTriggers(System.Collections.Generic.List<GameEntity> newList)
 	{
 		var index = GameComponentsLookup.Triggers;
 		var component = (DimensionalDoors.Components.Game.TriggersComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Game.TriggersComponent));
@@ -37,7 +37,7 @@ public partial class GameEntity
 		var index = GameComponentsLookup.Triggers;
 		var component = (DimensionalDoors.Components.Game.TriggersComponent)CreateComponent(index, typeof(DimensionalDoors.Components.Game.TriggersComponent));
 		#if !ENTITAS_REDUX_NO_IMPL
-		component.list = (System.Collections.Generic.List<UnityEngine.GameObject>)JCMG.EntitasRedux.ListTools.ShallowCopy(copyComponent.list);
+		component.list = (System.Collections.Generic.List<GameEntity>)JCMG.EntitasRedux.ListTools.ShallowCopy(copyComponent.list);
 		#endif
 		ReplaceComponent(index, component);
 	}

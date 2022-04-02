@@ -22,21 +22,13 @@ public partial class GameEntity
 		{
 			CopyTimerTo(Timer);
 		}
-		else if (component is DimensionalDoors.Components.Game.TargetObjectComponent TargetObject)
+		else if (component is DimensionalDoors.Components.Game.WeaponHolderComponent WeaponHolder)
 		{
-			CopyTargetObjectTo(TargetObject);
+			CopyWeaponHolderTo(WeaponHolder);
 		}
-		else if (component is DimensionalDoors.Components.Game.Player Player)
+		else if (component is DimensionalDoors.Components.Game.Attacked Attacked)
 		{
-			IsPlayer = true;
-		}
-		else if (component is DimensionalDoors.Components.Game.TriggersComponent Triggers)
-		{
-			CopyTriggersTo(Triggers);
-		}
-		else if (component is DimensionalDoors.Components.Game.ScanFieldComponent ScanField)
-		{
-			CopyScanFieldTo(ScanField);
+			IsAttacked = true;
 		}
 		else if (component is DimensionalDoors.Components.Game.ViewComponent View)
 		{
@@ -46,9 +38,17 @@ public partial class GameEntity
 		{
 			IsSpawned = true;
 		}
+		else if (component is DimensionalDoors.Components.Game.WeaponInitializeComponent WeaponInitialize)
+		{
+			CopyWeaponInitializeTo(WeaponInitialize);
+		}
 		else if (component is DimensionalDoors.Components.Game.CollisionsComponent Collisions)
 		{
 			CopyCollisionsTo(Collisions);
+		}
+		else if (component is DimensionalDoors.Components.Game.TriggersComponent Triggers)
+		{
+			CopyTriggersTo(Triggers);
 		}
 		else if (component is DimensionalDoors.Components.Game.Rotatable Rotatable)
 		{
@@ -70,6 +70,10 @@ public partial class GameEntity
 		{
 			CopyRandomCirclePositionTo(RandomCirclePosition);
 		}
+		else if (component is DimensionalDoors.Components.Game.Weapon Weapon)
+		{
+			IsWeapon = true;
+		}
 		else if (component is DimensionalDoors.Components.Game.Move Move)
 		{
 			CopyMoveTo(Move);
@@ -78,9 +82,21 @@ public partial class GameEntity
 		{
 			CopyFollowCameraTo(FollowCamera);
 		}
+		else if (component is DimensionalDoors.Components.Game.ScanFieldComponent ScanField)
+		{
+			CopyScanFieldTo(ScanField);
+		}
 		else if (component is DimensionalDoors.Components.Game.PhysicsComponent Physics)
 		{
 			CopyPhysicsTo(Physics);
+		}
+		else if (component is DimensionalDoors.Components.Game.TargetObjectComponent TargetObject)
+		{
+			CopyTargetObjectTo(TargetObject);
+		}
+		else if (component is DimensionalDoors.Components.Game.Player Player)
+		{
+			IsPlayer = true;
 		}
 		#endif
 	}
